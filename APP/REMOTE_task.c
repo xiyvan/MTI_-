@@ -21,7 +21,7 @@ static void solve_gym_msg(u16 cmd_id,u8* data);
 
 
 Remote_angle_t remote_angle;
-// Remote_power_limted_t remote_power_limted;
+//Remote_power_limted_t remote_power_limted;
 Remote_speed_t Remote_speed;
 
 

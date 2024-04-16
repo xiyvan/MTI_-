@@ -1,0 +1,19 @@
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling CHASSIS_behave.c...
+..\APP\CHASSIS_behave.c(10): warning:  #223-D: function "arm_sin_cos_f32" declared implicitly
+      arm_sin_cos_f32(chassis->chassis_remote.gym_angle->angle,&sin_x,&cos_x);
+..\APP\CHASSIS_behave.c(45): warning:  #223-D: function "arm_sin_cos_f32" declared implicitly
+      arm_sin_cos_f32(chassis->chassis_remote.gym_angle->angle,&sin_x,&cos_x);
+..\APP\CHASSIS_behave.c: 2 warnings, 0 errors
+compiling CHASSIS_task.c...
+..\APP\CHASSIS_task.c(169): warning:  #177-D: function "chassis_speed_limt"  was declared but never referenced
+  static void chassis_speed_limt(float* speed)
+..\APP\CHASSIS_task.c(201): warning:  #177-D: function "Chassis_speed_sp"  was declared but never referenced
+  static float Chassis_speed_sp(float max,float min,float xyz,float input)
+..\APP\CHASSIS_task.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=11892 RO-data=2476 RW-data=196 ZI-data=78700  
+FromELF: creating hex file...
+".\Objects\project1.axf" - 0 Error(s), 4 Warning(s).
+Build Time Elapsed:  00:00:01

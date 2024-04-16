@@ -506,11 +506,6 @@
               <FilePath>..\APP\BUZZER_task.c</FilePath>
             </File>
             <File>
-              <FileName>SERVOS_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\APP\SERVOS_task.c</FilePath>
-            </File>
-            <File>
               <FileName>CHASSIS_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APP\CHASSIS_task.c</FilePath>
@@ -519,6 +514,11 @@
               <FileName>REMOTE_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\APP\REMOTE_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>CHASSIS_behave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\CHASSIS_behave.c</FilePath>
             </File>
           </Files>
         </Group>

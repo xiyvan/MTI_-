@@ -43,16 +43,6 @@ void create_task(void)
 							 (TaskHandle_t*)&BEZZER_Handler			//任务结构体变量指针
 							);
 //**********************************************************************************
-//							   舵机任务创建
-	TaskHandle_t SERVOS_Handler;
-	xTaskCreate((TaskFunction_t)Servos_task,						//任务函数名称
-							(const char*  ) "Servos_task",			
-							(uint16_t     ) 64,						//任务堆栈大小
-							(void*        )NULL,					//任务函数变量
-							(UBaseType_t  )2,						//任务优先级
-							(TaskHandle_t*)&SERVOS_Handler			//任务结构体变量指针
-					);
-//**********************************************************************************
 //							   底盘任务创建
 	TaskHandle_t CHASSIS_Handler;
 	xTaskCreate((TaskFunction_t)Chassis_task,						//任务函数名称

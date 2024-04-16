@@ -12,7 +12,7 @@
 #include "BSP_motor.h"
 #include "BSP_CAN.h"
 #include "CHASSIS_task.h"
-
+#include "RM_motor.h"
 
 
 extern CHASSIS_struct_t Main_chassis;
@@ -26,7 +26,7 @@ void CAN2_RX0_IRQHandler(void)
     {
         CAN_ClearITPendingBit(CAN2,CAN_IT_FMP0);
         CAN_Receive(CAN2,CAN_FIFO0,&RxMessage);
-        
+        motor_msg_decode_3508(RxMessage.StdId,RxMessage.Data,&Main_chassis.motor_msg);
     }
 }
 

@@ -23,6 +23,11 @@
 
 
 
+// 遥控器值转换为实际值需要的系数
+#define CHASSIS_REMOTE_CHANGE_VX 0.01
+#define CHASSIS_REMOTE_CHANGE_VY 0.01
+#define CHASSIS_REMOTE_CHANGE_WZ 0.01
+
 
 
 #define CHASSIS_LEG_SET_coefficient 6600.0f
@@ -60,36 +65,40 @@ enum
 
 typedef struct 
 {
-    Remote_speed_t* speed_set;
-    float wz_set;
+    
+    float speed_change_set[2];  /* 用来保存速度设置（通过改变后的 vx vy）*/
     int wz_jq;                  /*wz 方向进行计圈*/
-
-    float current_set[4];             /*六个电机最终给与电流*/
+    float wheel_speed_set[4];   /* 四个轮子的速度设置*/
+    float vx_set;
+    float vy_set;
+    float wz_set;
+    s16 current_set[4];             /*六个电机最终给与电流*/
     u8 mode_last;                   /*上一次的模式*/
 
 }chassis_set_msg_t;
 
 
+
+
+
 typedef struct 
 {
-    float vx;
-    float vy;
-    float wz;
-}chassis_msg_t;
+    Remote_speed_t* speed_set;          // 速度设置与模式设置
+    Remote_angle_t* gym_angle;          // 保存云台角度与底盘缓冲与模式设置
+}chassis_remote_msg_t;
 
 
 
 /// @brief 底盘总结构体
 typedef struct 
 {
-    chassis_set_msg_t chassis_set_msg;  /* 底盘设置信息 */
-    chassis_msg_t chassis_msg;          /* 底盘本身信息 */
-
+    chassis_set_msg_t chassis_set_msg;          /* 底盘设置信息 */
+    chassis_remote_msg_t chassis_remote;        /* 遥控信息 */
+    float wheel_speed_msg[4];                   /* 四个轮子的速度反馈 */
     motor_return_msg_t motor_msg[4];    // 保存四个电机的数据
-
     PID_type_def wheel_speed_pid[4];    // 四个轮子速度PID
     PID_type_def angle_pid;             // 底盘角度PID
-    Remote_angle_t* gym_angle;          // 保存云台角度与底盘缓冲与模式设置
+    
 }CHASSIS_struct_t;
 
 

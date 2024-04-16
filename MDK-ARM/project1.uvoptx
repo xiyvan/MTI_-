@@ -534,8 +534,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\APP\SERVOS_task.c</PathWithFileName>
-      <FilenameWithoutPath>SERVOS_task.c</FilenameWithoutPath>
+      <PathWithFileName>..\APP\CHASSIS_task.c</PathWithFileName>
+      <FilenameWithoutPath>CHASSIS_task.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -546,8 +546,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\APP\CHASSIS_task.c</PathWithFileName>
-      <FilenameWithoutPath>CHASSIS_task.c</FilenameWithoutPath>
+      <PathWithFileName>..\APP\REMOTE_task.c</PathWithFileName>
+      <FilenameWithoutPath>REMOTE_task.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -558,8 +558,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\APP\REMOTE_task.c</PathWithFileName>
-      <FilenameWithoutPath>REMOTE_task.c</FilenameWithoutPath>
+      <PathWithFileName>..\APP\CHASSIS_behave.c</PathWithFileName>
+      <FilenameWithoutPath>CHASSIS_behave.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
