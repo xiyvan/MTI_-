@@ -56,8 +56,9 @@ enum
 {
     CHASSIS_FLOW_GIMBAL = 0,     /*底盘跟随云台模式*/
     CHASSIS_FLOW_CHASSIS,       /*底盘跟随底盘模式*/
-    CHASSIS_OPEN_LOOP,          /*底盘开环控制模式*/
     CHASSIS_ZERO_CU,            /*底盘零电流模式*/
+    CHASSIS_NO_FLOW_CHASSIS,    /*底盘不跟随云台模式*/
+    CHASSIS_OPEN_LOOP,          /*底盘开环控制模式*/
     CHASSIS_revolve_mode,       /*底盘小陀螺模式*/
 };
 

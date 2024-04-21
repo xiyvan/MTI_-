@@ -26,7 +26,7 @@ void CAN2_RX0_IRQHandler(void)
     {
         CAN_ClearITPendingBit(CAN2,CAN_IT_FMP0);
         CAN_Receive(CAN2,CAN_FIFO0,&RxMessage);
-        motor_msg_decode_3508(RxMessage.StdId,RxMessage.Data,&Main_chassis.motor_msg);
+        motor_msg_decode_3508(RxMessage.StdId,RxMessage.Data,Main_chassis.motor_msg);
     }
 }
 

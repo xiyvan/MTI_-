@@ -37,9 +37,9 @@ typedef struct __attribute__((packed))
 typedef struct __attribute__((packed))
 {
     u8 sof;
-    u16 vx_set;           // vx速度设置
-    u16 vy_set;           // vy速度设置
-    u16 wz_set;
+    s16 vx_set;           // vx速度设置
+    s16 vy_set;           // vy速度设置
+    s16 wz_set;
     u8 mode_set;        // 模式设置
 }Remote_speed_t;
 
