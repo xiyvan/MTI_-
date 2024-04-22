@@ -17,9 +17,9 @@ void chassis_follow_gym_solve(CHASSIS_struct_t* chassis)
     chassis->chassis_set_msg.speed_change_set[1] = chassis->chassis_set_msg.vx_set * sin_x + chassis->chassis_set_msg.vy_set * cos_x;
 
     // 四个轮子的速度设置(未测定)
-    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
-    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
-    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.speed_change_set[0] - chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.speed_change_set[0] - chassis->chassis_set_msg.speed_change_set[1] - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
     chassis->chassis_set_msg.wheel_speed_set[3] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
 }
 
@@ -52,9 +52,9 @@ void chassis_revolve_solve(CHASSIS_struct_t* chassis)
     chassis->chassis_set_msg.speed_change_set[1] = chassis->chassis_set_msg.vx_set * sin_x + chassis->chassis_set_msg.vy_set * cos_x;
 
     // 四个轮子的速度设置(未测定)
-    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
-    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
-    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.speed_change_set[0] - chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.speed_change_set[0] - chassis->chassis_set_msg.speed_change_set[1] - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
     chassis->chassis_set_msg.wheel_speed_set[3] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
 }
 
@@ -66,8 +66,8 @@ void chassis_revolve_solve(CHASSIS_struct_t* chassis)
 void chassis_follow_chassis_solve(CHASSIS_struct_t* chassis)
 {
     // 符号未测定
-    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set;
-    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set;
-    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set;
+    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set;
+    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set;
+    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set;
     chassis->chassis_set_msg.wheel_speed_set[3] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set;
 }

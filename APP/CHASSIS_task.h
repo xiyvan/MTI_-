@@ -9,10 +9,10 @@
 #define PI 3.1415926
 
 
-#define chassis_whell_speed_pid_kp 0.0f
+#define chassis_whell_speed_pid_kp 8000.0f
 #define chassis_whell_speed_pid_ki 0.0f
-#define chassis_whell_speed_pid_kd 0.0f
-#define chassis_whell_speed_pid_maxout 0.0f
+#define chassis_whell_speed_pid_kd 1.0f
+#define chassis_whell_speed_pid_maxout 16800.0f
 #define chassis_whell_speed_pid_maxiout 0.0f
 
 #define chassis_angle_pid_kp 0.0f
@@ -24,16 +24,16 @@
 
 
 // 遥控器值转换为实际值需要的系数
-#define CHASSIS_REMOTE_CHANGE_VX 0.01
-#define CHASSIS_REMOTE_CHANGE_VY 0.01
-#define CHASSIS_REMOTE_CHANGE_WZ 0.01
+#define CHASSIS_REMOTE_CHANGE_VX 0.003
+#define CHASSIS_REMOTE_CHANGE_VY 0.003
+#define CHASSIS_REMOTE_CHANGE_WZ 0.003
 
 
 
 #define CHASSIS_LEG_SET_coefficient 6600.0f
 
 //运动解算的时候，wz（旋转）加入速度的比例
-#define CHASSIS_WZ_MOTION_PARSE_COEF 1
+#define CHASSIS_WZ_MOTION_PARSE_COEF 0.5f
 
 //开环状态下，轮子速度转换为电流的大小 (待定)
 #define CHASSIS_OPEN_LOOP_COE 1000
@@ -74,6 +74,7 @@ typedef struct
     float vy_set;
     float wz_set;
     s16 current_set[4];             /*六个电机最终给与电流*/
+    u8 mode_set;                    /* 模式设置 */
     u8 mode_last;                   /*上一次的模式*/
 
 }chassis_set_msg_t;

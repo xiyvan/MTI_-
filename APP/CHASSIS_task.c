@@ -25,6 +25,7 @@
 ///************************************************************************* 函数声明  *************************************************************************///
 
 static void chassis_init(CHASSIS_struct_t* chassis);
+static void chassis_mode_set(CHASSIS_struct_t* chassis);
 static void chassis_cale(CHASSIS_struct_t* chassis);
 static void chassis_ctrl_set(CHASSIS_struct_t* chassis);
 static void chassis_motion_parse(CHASSIS_struct_t* chassis);
@@ -45,11 +46,12 @@ void Chassis_task(void *pvParameters)
     chassis_init(&Main_chassis);
     while (1)
     {
+        chassis_mode_set(&Main_chassis);
         chassis_ctrl_set(&Main_chassis);        /*控制量设置*/
         chassis_msg_update(&Main_chassis);      /*底盘信息更新*/
         chassis_motion_parse(&Main_chassis);  /*电机运动解算*/
         chassis_cale(&Main_chassis);          /*底盘控制电流计算*/
-        RM_motor_send(CAN1,Main_chassis.chassis_set_msg.current_set[0],Main_chassis.chassis_set_msg.current_set[1],
+        RM_motor_send(CAN2,Main_chassis.chassis_set_msg.current_set[0],Main_chassis.chassis_set_msg.current_set[1],
                                 Main_chassis.chassis_set_msg.current_set[2],Main_chassis.chassis_set_msg.current_set[3],CAN_3508_ID14);
         vTaskDelay(5);
         //Main_chassis.chassis_set_msg.mode_last = Main_chassis.chassis_set_msg.chassis_mode_set;     /*更新地盘数据*/
@@ -87,6 +89,37 @@ static void chassis_init(CHASSIS_struct_t* chassis)
 
 
 
+/// @brief 底盘模式设置
+/// @param chassis 底盘信息结构体
+static void chassis_mode_set(CHASSIS_struct_t* chassis)
+{
+    switch (chassis->chassis_remote.speed_set->mode_set)
+    {
+    case REMOVE_S_DOWN:
+        {
+            // 波妞在下面的时候
+            chassis->chassis_set_msg.mode_set = CHASSIS_ZERO_CU;
+        }break;
+    
+    case REMOVE_S_MID:
+        {
+            // 波妞在中间的时候
+            chassis->chassis_set_msg.mode_set = CHASSIS_NO_FLOW_CHASSIS;
+        }break;
+
+    case REMOVE_S_UP:
+        {
+            // 波妞在上面的时候
+            chassis->chassis_set_msg.mode_set = CHASSIS_revolve_mode;
+        }break;
+
+    default:
+        {
+            // 波妞信息错误的情况
+            chassis->chassis_set_msg.mode_set = CHASSIS_ZERO_CU;
+        }break;
+    }
+}
 
 
 
@@ -94,9 +127,9 @@ static void chassis_init(CHASSIS_struct_t* chassis)
 /// @param chassis 底盘结构体
 static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
 {
+    chassis->chassis_set_msg.wz_set = chassis->chassis_remote.speed_set->wz_set * CHASSIS_REMOTE_CHANGE_WZ;
     chassis->chassis_set_msg.vx_set =  chassis->chassis_remote.speed_set->vx_set * CHASSIS_REMOTE_CHANGE_VX;
     chassis->chassis_set_msg.vy_set = chassis->chassis_remote.speed_set->vy_set * CHASSIS_REMOTE_CHANGE_VY;
-    chassis->chassis_set_msg.wz_set = chassis->chassis_remote.speed_set->wz_set * CHASSIS_REMOTE_CHANGE_WZ;
 }
 
 
@@ -117,7 +150,7 @@ static void chassis_msg_update(CHASSIS_struct_t* chassis)
 /// @param chassis 底盘结构体 (待定)
 static void chassis_motion_parse(CHASSIS_struct_t* chassis)
 {
-    switch(chassis->chassis_remote.speed_set->mode_set)
+    switch(chassis->chassis_set_msg.mode_set)
     {
         case CHASSIS_ZERO_CU:
         {
@@ -125,11 +158,17 @@ static void chassis_motion_parse(CHASSIS_struct_t* chassis)
             chassis_zero_solve(chassis);
         }break;
 
+        case CHASSIS_NO_FLOW_CHASSIS:
+        {
+            // 底盘跟随底盘（不跟随云台模式）
+            chassis_follow_chassis_solve(chassis);
+        }break;
+
         case CHASSIS_FLOW_GIMBAL: 
         {
             /// 底盘跟随云台
             chassis_follow_gym_solve(chassis);
-        }
+        }break;
 
         case CHASSIS_revolve_mode:
         {
@@ -154,14 +193,15 @@ static void chassis_cale(CHASSIS_struct_t* chassis)
         {
             // 零电流已经在前面响应过了
         }break;
+        case CHASSIS_NO_FLOW_CHASSIS:
         case CHASSIS_revolve_mode:
         case CHASSIS_FLOW_CHASSIS:
         case CHASSIS_FLOW_GIMBAL:
         {
             // 底盘跟随云台模式
             chassis->chassis_set_msg.current_set[0] = PID_cale(&chassis->wheel_speed_pid[0],chassis->chassis_set_msg.wheel_speed_set[0],chassis->wheel_speed_msg[0]);
-            chassis->chassis_set_msg.current_set[1] = PID_cale(&chassis->wheel_speed_pid[1],chassis->chassis_set_msg.wheel_speed_set[1],chassis->wheel_speed_msg[1]);
-            chassis->chassis_set_msg.current_set[2] = PID_cale(&chassis->wheel_speed_pid[2],chassis->chassis_set_msg.wheel_speed_set[2],chassis->wheel_speed_msg[2]);
+            chassis->chassis_set_msg.current_set[1] = PID_cale(&chassis->wheel_speed_pid[1],-chassis->chassis_set_msg.wheel_speed_set[1],chassis->wheel_speed_msg[1]);
+            chassis->chassis_set_msg.current_set[2] = PID_cale(&chassis->wheel_speed_pid[2],-chassis->chassis_set_msg.wheel_speed_set[2],chassis->wheel_speed_msg[2]);
             chassis->chassis_set_msg.current_set[3] = PID_cale(&chassis->wheel_speed_pid[3],chassis->chassis_set_msg.wheel_speed_set[3],chassis->wheel_speed_msg[3]);
         }break;
         default:break;

@@ -9,6 +9,10 @@
 #define REMOTE_WEI 0X5A
 
 
+#define REMOVE_S_DOWN 2
+#define REMOVE_S_MID 3
+#define REMOVE_S_UP 1
+
 // CAN角度ID
 #define REMOTE_ANGLE_HUAN 0X555
 // CAN 速度设置ID

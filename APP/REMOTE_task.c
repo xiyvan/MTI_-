@@ -15,6 +15,7 @@
 #include "stdio.h"
 
 
+
 static void solve_gym_msg(u16 cmd_id,u8* data);
 
 
