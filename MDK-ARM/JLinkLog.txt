@@ -1,71 +1,19 @@
-T30B4 000:010.162   SEGGER J-Link V7.22 Log File
-T30B4 000:010.307   DLL Compiled: Jun  2 2021 10:03:15
-T30B4 000:010.315   Logging started @ 2024-02-05 11:57
-T30B4 000:010.321 - 10.324ms
-T30B4 000:010.332 JLINK_SetWarnOutHandler(...)
-T30B4 000:010.339 - 0.010ms
-T30B4 000:010.346 JLINK_OpenEx(...)
-T30B4 000:012.531   Firmware: J-Link V9 compiled May  7 2021 16:26:12
-T30B4 000:013.002   Firmware: J-Link V9 compiled May  7 2021 16:26:12
-T30B4 000:013.203   Decompressing FW timestamp took 164 us
-T30B4 000:020.649   Hardware: V9.20
-T30B4 000:020.694   S/N: 4294967295
-T30B4 000:020.711   OEM: SEGGER
-T30B4 000:020.727   Feature(s): RDI, FlashBP, FlashDL, JFlash, GDB
-T30B4 000:022.205   TELNET listener socket opened on port 19021
-T30B4 000:022.293   WEBSRV Starting webserver
-T30B4 000:022.457   WEBSRV Webserver running on local port 19080
-T30B4 000:022.471 - 12.137ms returns "O.K."
-T30B4 000:022.497 JLINK_GetEmuCaps()
-T30B4 000:022.505 - 0.011ms returns 0xB9FF7BBF
-T30B4 000:022.518 JLINK_TIF_GetAvailable(...)
-T30B4 000:022.762 - 0.254ms
-T30B4 000:022.785 JLINK_SetErrorOutHandler(...)
-T30B4 000:022.790 - 0.008ms
-T30B4 000:022.807 JLINK_ExecCommand("ProjectFile = "C:\Users\¹ÂÃÎÒ»\Desktop\µ×ÅÌ²¿·Ö\MDK-ARM\JLinkSettings.ini"", ...). 
-T30B4 000:033.575   Ref file found at: D:\keil 5\ARM\Segger\JLinkDevices.ref
-T30B4 000:033.667   XML referenced by ref file: D:\J-Link\JLinkDevices.xml
-T30B4 000:034.403   D:\J-Link\JLinkDevices.xml evaluated successfully.
-T30B4 000:045.497 - 22.706ms returns 0x00
-T30B4 000:045.559 JLINK_ExecCommand("Device = STM32F407IGHx", ...). 
-T30B4 000:046.348   Device "STM32F407IG" selected.
-T30B4 000:046.767 - 1.204ms returns 0x00
-T30B4 000:046.793 JLINK_GetHardwareVersion()
-T30B4 000:046.802 - 0.012ms returns 92000
-T30B4 000:046.815 JLINK_GetDLLVersion()
-T30B4 000:046.825 - 0.013ms returns 72200
-T30B4 000:046.834 JLINK_GetOEMString(...)
-T30B4 000:046.844 JLINK_GetFirmwareString(...)
-T30B4 000:046.852 - 0.012ms
-T30B4 000:046.898 JLINK_GetDLLVersion()
-T30B4 000:046.905 - 0.011ms returns 72200
-T30B4 000:046.915 JLINK_GetCompileDateTime()
-T30B4 000:046.923 - 0.011ms
-T30B4 000:046.938 JLINK_GetFirmwareString(...)
-T30B4 000:046.946 - 0.011ms
-T30B4 000:046.960 JLINK_GetHardwareVersion()
-T30B4 000:046.968 - 0.011ms returns 92000
-T30B4 000:046.982 JLINK_GetSN()
-T30B4 000:046.991 - 0.013ms returns -1
-T30B4 000:047.001 JLINK_GetOEMString(...)
-T30B4 000:047.020 JLINK_TIF_Select(JLINKARM_TIF_SWD)
-T30B4 000:048.166 - 1.160ms returns 0x00
-T30B4 000:048.193 JLINK_HasError()
-T30B4 000:048.224 JLINK_SetSpeed(50000)
-T30B4 000:048.585 - 0.381ms
-T30B4 000:048.619 JLINK_GetId()
-T30B4 000:048.945   InitTarget() start
-T30B4 000:048.968    J-Link Script File: Executing InitTarget()
-T30B4 000:151.201   Can not attach to CPU. Trying connect under reset.
-T30B4 000:303.996   Connecting to CPU via connect under reset failed.
-T30B4 000:354.488   InitTarget() end
-T30B4 000:416.502   InitTarget() start
-T30B4 000:416.579    J-Link Script File: Executing InitTarget()
-T30B4 000:518.248   Can not attach to CPU. Trying connect under reset.
-T30B4 000:671.219   Connecting to CPU via connect under reset failed.
-T30B4 000:722.607   InitTarget() end
-T30B4 000:722.676 - 674.065ms returns 0x00000000
-T30B4 001:382.640 JLINK_Close()
-T30B4 001:399.775 - 17.174ms
-T30B4 001:399.820   
-T30B4 001:399.831   Closed
+T2AA8 000:010.415   SEGGER J-Link V7.22 Log File
+T2AA8 000:021.708   DLL Compiled: Jun  2 2021 10:03:15
+T2AA8 000:021.721   Logging started @ 2024-04-22 11:10
+T2AA8 000:021.731 - 21.737ms
+T2AA8 000:022.000 JLINK_SetWarnOutHandler(...)
+T2AA8 000:022.028 - 0.037ms
+T2AA8 000:022.047 JLINK_OpenEx(...)
+T2AA8 000:026.724   Looking for J-Link GUI Server exe at: D:\keil 5\ARM\Segger\JLinkGUIServer.exe
+T2AA8 000:026.883   Looking for J-Link GUI Server exe at: D:\J-Link\JLinkGUIServer.exe
+T2AA8 000:026.919   Forking J-Link GUI Server: D:\J-Link\JLinkGUIServer.exe
+T2AA8 000:373.142   Failed to connect to J-Link GUI Server.
+T2AA8 002:930.430   
+  ***** Error: 
+T2AA8 002:930.469   Cannot connect to J-Link
+T2AA8 002:933.016 - 2910.988ms returns "Cannot connect to J-Link"
+T2AA8 004:127.616 JLINK_Close()
+T2AA8 004:133.732 - 6.142ms
+T2AA8 004:133.766   
+T2AA8 004:133.785   Closed

@@ -175,10 +175,10 @@ I (..\Drivers\inc\stm32f4xx_dcmi.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
 I (..\APP\BUZZER_task.h)(0x66115780)
 I (..\APP\SERVOS_task.h)(0x661E4216)
-I (..\APP\CHASSIS_task.h)(0x662517B1)
+I (..\APP\CHASSIS_task.h)(0x6626578C)
 I (..\BSP\BSP_motor.h)(0x66115780)
 I (..\Alhorithm\PID.h)(0x66115780)
-I (..\APP\REMOTE_task.h)(0x662516CE)
+I (..\APP\REMOTE_task.h)(0x66264CE8)
 I (..\exti_driver\RM_motor.h)(0x66115780)
 I (..\APP\GYRO_task.h)(0x66115780)
 I (..\APP\CHASSIS_SOLVE.h)(0x66115780)
@@ -759,8 +759,8 @@ I (..\Drivers\inc\stm32f4xx_dac.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_dcmi.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
 I (..\APP\LED_Blink_task.h)(0x66115780)
-F (..\APP\CHASSIS_task.c)(0x661E6DE4)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_task.o --omf_browse .\objects\chassis_task.crf --depend .\objects\chassis_task.d)
-I (..\APP\CHASSIS_task.h)(0x662517B1)
+F (..\APP\CHASSIS_task.c)(0x662653F1)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_task.o --omf_browse .\objects\chassis_task.crf --depend .\objects\chassis_task.d)
+I (..\APP\CHASSIS_task.h)(0x6626578C)
 I (..\BSP\BSP_motor.h)(0x66115780)
 I (..\MDK-ARM\stm32f4xx.h)(0x66115780)
 I (..\CMSIS\core_cm4.h)(0x66115780)
@@ -797,7 +797,7 @@ I (..\Drivers\inc\stm32f4xx_dac.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_dcmi.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
 I (..\Alhorithm\PID.h)(0x66115780)
-I (..\APP\REMOTE_task.h)(0x662516CE)
+I (..\APP\REMOTE_task.h)(0x66264CE8)
 I (..\exti_driver\RM_motor.h)(0x66115780)
 I (..\BSP\BSP_CAN.h)(0x66115780)
 I (..\APP\LED_Blink_task.h)(0x66115780)
@@ -816,8 +816,8 @@ I (..\RTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x66115780)
 I (..\RTOS\include\mpu_wrappers.h)(0x66115780)
 I (..\RTOS\include\task.h)(0x66115780)
 I (..\RTOS\include\list.h)(0x66115780)
-F (..\APP\REMOTE_task.c)(0x661E41C5)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\remote_task.o --omf_browse .\objects\remote_task.crf --depend .\objects\remote_task.d)
-I (..\APP\REMOTE_task.h)(0x662516CE)
+F (..\APP\REMOTE_task.c)(0x6626477D)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\remote_task.o --omf_browse .\objects\remote_task.crf --depend .\objects\remote_task.d)
+I (..\APP\REMOTE_task.h)(0x66264CE8)
 I (..\MDK-ARM\stm32f4xx.h)(0x66115780)
 I (..\CMSIS\core_cm4.h)(0x66115780)
 I (D:\keil 5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -857,7 +857,7 @@ I (..\APP\LED_Blink_task.h)(0x66115780)
 I (..\BSP\BSP_CAN.h)(0x66115780)
 I (D:\keil 5\ARM\ARMCC\include\string.h)(0x5D9AD218)
 I (D:\keil 5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
-F (..\APP\CHASSIS_behave.c)(0x6624E8BF)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_behave.o --omf_browse .\objects\chassis_behave.crf --depend .\objects\chassis_behave.d)
+F (..\APP\CHASSIS_behave.c)(0x66265715)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_behave.o --omf_browse .\objects\chassis_behave.crf --depend .\objects\chassis_behave.d)
 I (..\APP\CHASSIS_behave.h)(0x661E43C4)
 I (..\MDK-ARM\stm32f4xx.h)(0x66115780)
 I (..\CMSIS\core_cm4.h)(0x66115780)
@@ -893,10 +893,10 @@ I (..\Drivers\inc\stm32f4xx_can.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_dac.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_dcmi.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
-I (..\APP\CHASSIS_task.h)(0x662517B1)
+I (..\APP\CHASSIS_task.h)(0x6626578C)
 I (..\BSP\BSP_motor.h)(0x66115780)
 I (..\Alhorithm\PID.h)(0x66115780)
-I (..\APP\REMOTE_task.h)(0x662516CE)
+I (..\APP\REMOTE_task.h)(0x66264CE8)
 I (..\exti_driver\RM_motor.h)(0x66115780)
 F (..\BSP\BSP_LED.c)(0x66115780)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\bsp_led.o --omf_browse .\objects\bsp_led.crf --depend .\objects\bsp_led.d)
 I (..\BSP\BSP_LED.h)(0x66115780)
@@ -1154,9 +1154,9 @@ I (..\Drivers\inc\stm32f4xx_dac.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_dcmi.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
 I (..\BSP\BSP_CAN.h)(0x66115780)
-I (..\APP\CHASSIS_task.h)(0x662517B1)
+I (..\APP\CHASSIS_task.h)(0x6626578C)
 I (..\Alhorithm\PID.h)(0x66115780)
-I (..\APP\REMOTE_task.h)(0x662516CE)
+I (..\APP\REMOTE_task.h)(0x66264CE8)
 I (..\exti_driver\RM_motor.h)(0x66115780)
 F (..\Alhorithm\PID.c)(0x66115780)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\pid.o --omf_browse .\objects\pid.crf --depend .\objects\pid.d)
 I (..\Alhorithm\PID.h)(0x66115780)
