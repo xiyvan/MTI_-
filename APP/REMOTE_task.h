@@ -35,6 +35,7 @@ typedef struct __attribute__((packed))
 {
     u8 sof;
     u16 power_limted;        // 功率限制
+    u8 K[5];                 // 预留位
 }Remote_power_limted_t;
 
 

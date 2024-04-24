@@ -21,41 +21,18 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-C:\Users\孤梦一\Desktop\云台试验\底盘部分\MDK-ARM\project1.uvprojx
+c:\Users\孤梦一\Desktop\云台试验\底盘部分\MDK-ARM\project1.uvprojx
 Project File Date:  04/16/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling CHASSIS_behave.c...
-..\APP\CHASSIS_behave.c(10): warning:  #223-D: function "arm_sin_cos_f32" declared implicitly
-      arm_sin_cos_f32(chassis->chassis_remote.gym_angle->angle,&sin_x,&cos_x);
-..\APP\CHASSIS_behave.c(45): warning:  #223-D: function "arm_sin_cos_f32" declared implicitly
-      arm_sin_cos_f32(chassis->chassis_remote.gym_angle->angle,&sin_x,&cos_x);
-..\APP\CHASSIS_behave.c: 2 warnings, 0 errors
-compiling BSP_motor.c...
-compiling make_task.c...
-..\RTOS\mk_task.h(16): warning:  #14-D: extra text after expected end of preprocessing directive
-  #endif _MK_TASK_H_
-..\RTOS\make_task.c: 1 warning, 0 errors
 compiling CHASSIS_task.c...
-..\APP\CHASSIS_task.c(141): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      chassis->wheel_speed_msg[0] = chassis->motor_msg[0].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
-..\APP\CHASSIS_task.c(142): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      chassis->wheel_speed_msg[1] = chassis->motor_msg[1].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
-..\APP\CHASSIS_task.c(143): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      chassis->wheel_speed_msg[2] = chassis->motor_msg[2].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
-..\APP\CHASSIS_task.c(144): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-      chassis->wheel_speed_msg[3] = chassis->motor_msg[3].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
-..\APP\CHASSIS_task.c(231): warning:  #177-D: function "chassis_speed_limt"  was declared but never referenced
-  static void chassis_speed_limt(float* speed)
-..\APP\CHASSIS_task.c(263): warning:  #177-D: function "Chassis_speed_sp"  was declared but never referenced
-  static float Chassis_speed_sp(float max,float min,float xyz,float input)
-..\APP\CHASSIS_task.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=12916 RO-data=2476 RW-data=196 ZI-data=78708  
+Program Size: Code=13108 RO-data=2476 RW-data=196 ZI-data=78732  
 FromELF: creating hex file...
-".\Objects\project1.axf" - 0 Error(s), 9 Warning(s).
+".\Objects\project1.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -68,7 +45,7 @@ Package Vendor: Keil
   D:/keil 5/Keil/STM32F4xx_DFP/2.17.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

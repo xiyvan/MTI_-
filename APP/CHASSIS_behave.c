@@ -1,9 +1,19 @@
+/*********************************
+ * @author 韩昂轩（Han Angxvan）
+ * 创建时间 ： 24.4.23
+ * 
+ *   底盘运动结算行为包
+*********************************/
+
+
 
 #include "CHASSIS_behave.h"
+#include "arm_math.h"
 
 
 
-// 底盘跟随云台底盘结算
+/// @brief 底盘跟随云台结算
+/// @param chassis 底盘信息结构体指针
 void chassis_follow_gym_solve(CHASSIS_struct_t* chassis)
 {
     float sin_x,cos_x;
@@ -26,7 +36,8 @@ void chassis_follow_gym_solve(CHASSIS_struct_t* chassis)
 
 
 
-// 零电流底盘解算
+/// @brief 零电流底盘解算
+/// @param chassis 底盘信息结构体指针
 void chassis_zero_solve(CHASSIS_struct_t* chassis)
 {
     for(u8 i = 0;i < 4;i++)
@@ -38,7 +49,8 @@ void chassis_zero_solve(CHASSIS_struct_t* chassis)
 
 
 
-// 小陀螺底盘解算
+/// @brief 小陀螺结算
+/// @param chassis 底盘信息结构体指针
 void chassis_revolve_solve(CHASSIS_struct_t* chassis)
 {
     float sin_x,cos_x;
@@ -51,7 +63,7 @@ void chassis_revolve_solve(CHASSIS_struct_t* chassis)
     chassis->chassis_set_msg.speed_change_set[0] = chassis->chassis_set_msg.vx_set * cos_x - chassis->chassis_set_msg.vy_set * sin_x;
     chassis->chassis_set_msg.speed_change_set[1] = chassis->chassis_set_msg.vx_set * sin_x + chassis->chassis_set_msg.vy_set * cos_x;
 
-    // 四个轮子的速度设置(未测定)
+    // 四个轮子的速度设置
     chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.speed_change_set[0] - chassis->chassis_set_msg.speed_change_set[1] + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
     chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.speed_change_set[0] + chassis->chassis_set_msg.speed_change_set[1] - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
     chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.speed_change_set[0] - chassis->chassis_set_msg.speed_change_set[1] - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
@@ -62,12 +74,88 @@ void chassis_revolve_solve(CHASSIS_struct_t* chassis)
 
 
 
-// 底盘跟随底盘模式结算
+/// @brief 底盘跟随底盘模式结算
+/// @param chassis 底盘信息结构体指针
 void chassis_follow_chassis_solve(CHASSIS_struct_t* chassis)
 {
-    // 符号未测定
-    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set;
-    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set;
-    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set;
-    chassis->chassis_set_msg.wheel_speed_set[3] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set;
+    chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[2] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+    chassis->chassis_set_msg.wheel_speed_set[3] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set * CHASSIS_WZ_MOTION_PARSE_COEF;
+}
+
+
+
+
+
+/// @brief  舵轮底盘运动解算（底盘跟随底盘）
+/// @param chassis 底盘信息结构体指针
+/// @param date 舵轮底盘解算结构体
+/// @note 解算方法 先把旋转速度分解到 x 与 y 方向上面，然后根据两个方向的速度合成求解轮子的角度与速度
+void chassis_follow_chassis_solve_D(CHASSIS_struct_t* chassis,chassis_solve_duo_t* date)
+{
+    ///*****************************  把旋转速度分解到vx与vy上面  *********************************************///
+    date->vxm[0] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+    date->vym[0] = chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+
+    date->vxm[1] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+    date->vym[1] = chassis->chassis_set_msg.vy_set - chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+
+    date->vxm[2] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+    date->vym[2] = chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+
+    date->vxm[3] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+    date->vym[3] = chassis->chassis_set_msg.vy_set + chassis->chassis_set_msg.wz_set / CHASSIS_BEHAVE_SQRT_2;
+
+    ///****************************  解算各个轮子的角度与速度  ***********************************************///
+    for(u8 i = 0;i < 4;i++)
+    {
+        if((date->vxm[i] != 0) && (date->vym[i] != 0))
+        {
+            // 当两个方向的速度都不是 0 的时候
+            // 计算轮子角度
+            date->angle[i] = atan(date->vym[i] / date->vxm[i]);
+            
+            // 计算轮子速度
+            arm_sqrt_f32((date->vxm[i] * date->vxm[i] + date->vym[i] * date->vym[i]),&date->speed[i]);
+            if(date->vxm[i] < 0)
+            {
+                // 如果 x方向上的速度是负数数的话
+                date->speed[i] = -date->speed[i];
+            }
+        }
+        else if((date->vxm[i] == 0) && (date->vym[i] != 0))
+        {
+            // 当 x 速度等于 0 的时候
+            if(date->vym[i] > 0)
+            {
+                date->angle[i] = CHASSIS_BEHAVE_PI_2;
+            }
+            else
+            {
+                date->angle[i] = -CHASSIS_BEHAVE_PI_2;
+            }
+            date->speed[i] = date->vym[i];
+        }
+        else if((date->vxm[i] != 0) && (date->vym[i] == 0))
+        {
+            // 当 y 速度等于 0 的时候
+            date->angle[i] = 0;
+
+            if(date->vxm[i] > 0)
+            {
+                date->speed[i] = date->vxm[i];
+            }
+            else
+            {
+                date->speed[i] = -date->vxm[i];
+            }
+        }
+        else
+        {
+            // x 与 y 方向都是 0 得时候
+            date->angle[i] = 0;
+            date->speed[i] = 0;
+        }
+    }
 }

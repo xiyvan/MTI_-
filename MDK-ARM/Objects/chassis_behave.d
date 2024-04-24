@@ -40,3 +40,8 @@
 .\objects\chassis_behave.o: ..\Alhorithm\PID.h
 .\objects\chassis_behave.o: ..\APP\REMOTE_task.h
 .\objects\chassis_behave.o: ..\exti_driver\RM_motor.h
+.\objects\chassis_behave.o: ..\Alhorithm\Z_math.h
+.\objects\chassis_behave.o: ..\Alhorithm\arm_math.h
+.\objects\chassis_behave.o: ..\CMSIS\core_cm4.h
+.\objects\chassis_behave.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\chassis_behave.o: D:\keil 5\ARM\ARMCC\Bin\..\include\math.h

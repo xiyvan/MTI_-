@@ -5,8 +5,9 @@
 #include "PID.h"
 #include "REMOTE_task.h"
 #include "RM_motor.h"
+#include "Z_math.h"
 
-#define PI 3.1415926
+#define PI 3.1415926f
 
 
 #define chassis_whell_speed_pid_kp 8000.0f
@@ -30,7 +31,6 @@
 
 
 
-#define CHASSIS_LEG_SET_coefficient 6600.0f
 
 //运动解算的时候，wz（旋转）加入速度的比例
 #define CHASSIS_WZ_MOTION_PARSE_COEF 0.5f
@@ -39,15 +39,15 @@
 #define CHASSIS_OPEN_LOOP_COE 1000
 
 //轮子半径（待定 单位m）
-#define CHASSIS_WHEEL_RADIUS 0.0676
-#define CHASSIS_WHEEL_MAX_SPEED 1.0f   /*单个轮子的最大速度 （m/s）*/
-#define CHASSIS_WHEEL_SPEED_CHANGE_COEFFICIENT 1.0f /*轮子反馈的速度转换为角速度的系数*/
+#define CHASSIS_WHEEL_RADIUS 0.0676f
+#define CHASSIS_WHEEL_MAX_SPEED 2.5f   /*单个轮子的最大速度 （m/s）*/
 
 
-#define CHASSIS_MODE_TOP_SPEED 0.5          /*小陀螺速度设置*/
+
+/*小陀螺速度设置*/
+#define CHASSIS_MODE_TOP_SPEED 0.5         
 
 
-#define CHASSIS_SPORT_MOTOR_MAX 2000.0f     /*腿部末端运动电机的最大电流*/
 
 
 
@@ -70,6 +70,8 @@ typedef struct
     float speed_change_set[2];  /* 用来保存速度设置（通过改变后的 vx vy）*/
     int wz_jq;                  /*wz 方向进行计圈*/
     float wheel_speed_set[4];   /* 四个轮子的速度设置*/
+    step_slope_msg_t vx_speed;  /* vx 方向的阶跃转斜坡*/
+    step_slope_msg_t vy_speed;  /* vy 方向的阶跃转斜坡*/
     float vx_set;
     float vy_set;
     float wz_set;

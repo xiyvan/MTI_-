@@ -53,5 +53,6 @@
 .\objects\make_task.o: ..\Alhorithm\PID.h
 .\objects\make_task.o: ..\APP\REMOTE_task.h
 .\objects\make_task.o: ..\exti_driver\RM_motor.h
+.\objects\make_task.o: ..\Alhorithm\Z_math.h
 .\objects\make_task.o: ..\APP\GYRO_task.h
 .\objects\make_task.o: ..\APP\CHASSIS_SOLVE.h

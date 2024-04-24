@@ -40,3 +40,4 @@
 .\objects\bsp_motor.o: ..\Alhorithm\PID.h
 .\objects\bsp_motor.o: ..\APP\REMOTE_task.h
 .\objects\bsp_motor.o: ..\exti_driver\RM_motor.h
+.\objects\bsp_motor.o: ..\Alhorithm\Z_math.h

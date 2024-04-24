@@ -30,6 +30,7 @@ static void chassis_cale(CHASSIS_struct_t* chassis);
 static void chassis_ctrl_set(CHASSIS_struct_t* chassis);
 static void chassis_motion_parse(CHASSIS_struct_t* chassis);
 static void chassis_msg_update(CHASSIS_struct_t* chassis);
+static void chassis_speed_limt(float* speed);
 
 
 ///************************************************************************ 变量声明  ************************************************************************///
@@ -127,9 +128,41 @@ static void chassis_mode_set(CHASSIS_struct_t* chassis)
 /// @param chassis 底盘结构体
 static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
 {
-    chassis->chassis_set_msg.wz_set = chassis->chassis_remote.speed_set->wz_set * CHASSIS_REMOTE_CHANGE_WZ;
-    chassis->chassis_set_msg.vx_set =  chassis->chassis_remote.speed_set->vx_set * CHASSIS_REMOTE_CHANGE_VX;
-    chassis->chassis_set_msg.vy_set = chassis->chassis_remote.speed_set->vy_set * CHASSIS_REMOTE_CHANGE_VY;
+    float vx_set,vy_set,wz_set;
+
+
+    // 各个速度设置（遥控 + 键鼠（未加））
+    vx_set = chassis->chassis_remote.speed_set->vx_set * CHASSIS_REMOTE_CHANGE_VX ;
+    vy_set = chassis->chassis_remote.speed_set->vy_set * CHASSIS_REMOTE_CHANGE_VY ;
+    wz_set = chassis->chassis_remote.speed_set->wz_set * CHASSIS_REMOTE_CHANGE_WZ ;
+
+
+    // wz 速度设置
+    chassis->chassis_set_msg.wz_set = wz_set;
+
+    // vx 速度设置
+    if(vx_set != 0)
+    {
+        chassis->chassis_set_msg.vx_set =  FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vx_speed,
+                                                                    vx_set,
+                                                                    0.01);
+    }
+    else
+    {
+        chassis->chassis_set_msg.vx_set = 0;
+    }
+
+    // vy 速度设置
+    if(vy_set != 0)
+    {
+        chassis->chassis_set_msg.vy_set = FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vy_speed,
+                                                                    vy_set,
+                                                                    0.01);
+    }
+    else
+    {
+        chassis->chassis_set_msg.vy_set = 0;
+    }
 }
 
 
@@ -199,6 +232,7 @@ static void chassis_cale(CHASSIS_struct_t* chassis)
         case CHASSIS_FLOW_GIMBAL:
         {
             // 底盘跟随云台模式
+            chassis_speed_limt(chassis->chassis_set_msg.wheel_speed_set);
             chassis->chassis_set_msg.current_set[0] = PID_cale(&chassis->wheel_speed_pid[0],chassis->chassis_set_msg.wheel_speed_set[0],chassis->wheel_speed_msg[0]);
             chassis->chassis_set_msg.current_set[1] = PID_cale(&chassis->wheel_speed_pid[1],-chassis->chassis_set_msg.wheel_speed_set[1],chassis->wheel_speed_msg[1]);
             chassis->chassis_set_msg.current_set[2] = PID_cale(&chassis->wheel_speed_pid[2],-chassis->chassis_set_msg.wheel_speed_set[2],chassis->wheel_speed_msg[2]);
@@ -207,17 +241,6 @@ static void chassis_cale(CHASSIS_struct_t* chassis)
         default:break;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -238,12 +261,12 @@ static void chassis_speed_limt(float* speed)
             max_speed = speed[x];
         }
     }
-    if(max_speed > CHASSIS_SPORT_MOTOR_MAX || max_speed < -CHASSIS_SPORT_MOTOR_MAX)         /*如果最大速度超过限制速度*/
+    if(max_speed > CHASSIS_WHEEL_MAX_SPEED || max_speed < -CHASSIS_WHEEL_MAX_SPEED)         /*如果最大速度超过限制速度*/
     {
-        max_speed = FZ_math_absolute(CHASSIS_SPORT_MOTOR_MAX / max_speed);    /*就让限制速度除以最大速度得到一个系数*/
+        max_speed = FZ_math_absolute(CHASSIS_WHEEL_MAX_SPEED / max_speed);    /*就让限制速度除以最大速度得到一个系数*/
         for(char x = 0;x < 2;x++)                           /*让四个轮子都乘上这个系数*/
         {
-            speed[x] = speed[x]*max_speed;
+            speed[x] = speed[x] * max_speed;
         }
     }
 }
@@ -251,24 +274,3 @@ static void chassis_speed_limt(float* speed)
 
 
 
-
-
-/**********************************
- * @brief 正负限幅函数
- * @param max 最大值
- * @param min 最小值
- * @param xyz 角度输入
- * @param input 力矩输出输入
-************************************/
-static float Chassis_speed_sp(float max,float min,float xyz,float input)
-{
-    if(xyz >= max && input > 0)
-    {
-        return 0;
-    }
-    if(xyz <= min && input < 0)
-    {
-        return 0;
-    }
-    return input;
-}
