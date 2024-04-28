@@ -16,8 +16,6 @@ enum
     CHASSIS_MOTOR_D_1,
     CHASSIS_MOTOR_D_2,
     CHASSIS_MOTOR_D_3,
-    CHASSIS_MOTOR_1_D_0,
-    CHASSIS_MOTOR_1_D_1,
     HOOK_ALL,
 };
 
@@ -29,8 +27,7 @@ enum
 typedef struct 
 {
     u8 Remote_time_out_d;
-    u8 chassis_motor_d[4];         //关节电机
-    u8 chassis_motor_1_d[2];       //底盘运动电机
+    u8 chassis_motor_d[4];         //底盘电机
 }status_display_t;
 
 

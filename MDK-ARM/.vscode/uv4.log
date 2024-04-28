@@ -1,9 +1,25 @@
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling CHASSIS_behave.c...
+compiling make_task.c...
+..\RTOS\mk_task.h(16): warning:  #14-D: extra text after expected end of preprocessing directive
+  #endif _MK_TASK_H_
+..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
+  typedef __attribute__((packed)) struct 
+..\RTOS\make_task.c: 2 warnings, 0 errors
+compiling BSP_motor.c...
+..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
+  typedef __attribute__((packed)) struct 
+..\BSP\BSP_motor.c: 1 warning, 0 errors
 compiling CHASSIS_task.c...
+..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
+  typedef __attribute__((packed)) struct 
+..\APP\CHASSIS_task.c: 1 warning, 0 errors
+compiling CHASSIS_behave.c...
+..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
+  typedef __attribute__((packed)) struct 
+..\APP\CHASSIS_behave.c: 1 warning, 0 errors
 linking...
-Program Size: Code=13108 RO-data=2476 RW-data=196 ZI-data=78732  
+Program Size: Code=21992 RO-data=2520 RW-data=368 ZI-data=79016  
 FromELF: creating hex file...
-".\Objects\project1.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\project1.axf" - 0 Error(s), 5 Warning(s).
 Build Time Elapsed:  00:00:01

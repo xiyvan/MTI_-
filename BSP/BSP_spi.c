@@ -55,6 +55,27 @@ void SPI1_Init(void)
     spi_define.SPI_CRCPolynomial = 10;                               //CRC校验
     SPI_Init(SPI1,&spi_define);
     SPI_CalculateCRC(SPI1,DISABLE);
+/*
+    DMA_InitTypeDef SPI_DMA_t;
+
+    SPI_DMA_t.DMA_Channel = DMA_Channel_3;                          //通道三
+    SPI_DMA_t.DMA_DIR = DMA_DIR_MemoryToPeripheral;                 //传输方向
+    SPI_DMA_t.DMA_BufferSize = 20;                                  //缓冲大小
+    SPI_DMA_t.DMA_PeripheralBaseAddr = (u32)(&SPI1.DR);             //外设地址
+    SPI_DMA_t.DMA_Memory0BaseAddr = 0;                              //存储器地址
+    SPI_DMA_t.DMA_PeripheralDataSize = 8;                           //外设数据位宽
+    SPI_DMA_t.DMA_PeripheralInc = DMA_PeripheralInc_Disable;        //外设地址增量
+    SPI_DMA_t.DMA_MemoryInc = DMA_MemoryInc_Disable;                //存储器地址增量
+    SPI_DMA_t.DMA_MemoryDataSize = 8;                               //存储器位宽
+    SPI_DMA_t.DMA_Mode = DMA_Mode_Normal;                           //dma模式
+    SPI_DMA_t.DMA_Priority = DMA_Priority_Medium;                   //dma优先级
+    SPI_DMA_t.DMA_FIFOMode = DMA_FIFOMode_Disable;                  //dmafifo
+    SPI_DMA_t.DMA_MemoryBurst =DMA_MemoryBurst_Single;              
+    SPI_DMA_t.DMA_PeripheralBurst = DMA_MemoryBurst_Single;
+
+    DMA_Init(DMA2_Stream2,&SPI_DMA_t);                              //dma初始化
+    DMA_Cmd(DMA2_Stream2,ENABLE);
+*/
     SPI_Cmd(SPI1,ENABLE);                                           //使能Spi
 }
 

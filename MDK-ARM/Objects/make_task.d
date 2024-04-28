@@ -47,7 +47,6 @@
 .\objects\make_task.o: ..\Drivers\inc\stm32f4xx_dcmi.h
 .\objects\make_task.o: ..\Drivers\inc\stm32f4xx_fsmc.h
 .\objects\make_task.o: ..\APP\BUZZER_task.h
-.\objects\make_task.o: ..\APP\SERVOS_task.h
 .\objects\make_task.o: ..\APP\CHASSIS_task.h
 .\objects\make_task.o: ..\BSP\BSP_motor.h
 .\objects\make_task.o: ..\Alhorithm\PID.h
@@ -55,4 +54,5 @@
 .\objects\make_task.o: ..\exti_driver\RM_motor.h
 .\objects\make_task.o: ..\Alhorithm\Z_math.h
 .\objects\make_task.o: ..\APP\GYRO_task.h
+.\objects\make_task.o: ..\BSP\BSP_gyro_accal.h
 .\objects\make_task.o: ..\APP\CHASSIS_SOLVE.h

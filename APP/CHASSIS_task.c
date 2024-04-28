@@ -39,6 +39,8 @@ static void chassis_speed_limt(float* speed);
 /*底盘主结构体*/
 CHASSIS_struct_t Main_chassis;
 
+extern float INS_angle[3];
+extern s32 ins_qvan[3];
 ///*********************************************************************** 底盘任务 **************************************************************************///
 
 /// @brief 地盘任务 
@@ -48,14 +50,13 @@ void Chassis_task(void *pvParameters)
     while (1)
     {
         chassis_mode_set(&Main_chassis);
-        chassis_ctrl_set(&Main_chassis);        /*控制量设置*/
         chassis_msg_update(&Main_chassis);      /*底盘信息更新*/
+        chassis_ctrl_set(&Main_chassis);        /*控制量设置*/
         chassis_motion_parse(&Main_chassis);  /*电机运动解算*/
         chassis_cale(&Main_chassis);          /*底盘控制电流计算*/
         RM_motor_send(CAN2,Main_chassis.chassis_set_msg.current_set[0],Main_chassis.chassis_set_msg.current_set[1],
                                 Main_chassis.chassis_set_msg.current_set[2],Main_chassis.chassis_set_msg.current_set[3],CAN_3508_ID14);
         vTaskDelay(5);
-        //Main_chassis.chassis_set_msg.mode_last = Main_chassis.chassis_set_msg.chassis_mode_set;     /*更新地盘数据*/
     }
 }
 
@@ -86,6 +87,9 @@ static void chassis_init(CHASSIS_struct_t* chassis)
     // 底盘角度PID
     temp[0]=chassis_angle_pid_kp;temp[1]=chassis_angle_pid_ki;temp[2]=chassis_angle_pid_kd;
     PID_Init(&chassis->angle_pid,temp,chassis_angle_pid_maxout,chassis_angle_pid_maxiout);
+
+    chassis->Ins_msg.YawAngle = &INS_angle[0];
+    chassis->Ins_msg.Yaw_qvan = &ins_qvan[0];
 }
 
 
@@ -120,6 +124,18 @@ static void chassis_mode_set(CHASSIS_struct_t* chassis)
             chassis->chassis_set_msg.mode_set = CHASSIS_ZERO_CU;
         }break;
     }
+
+///********************************************** 发生在模式切换时的操作  *************************************************************///
+
+    // 当从零电流切换到底盘跟随底盘的时候 让yaw轴的圈数置零防止溢出
+    if(chassis->chassis_set_msg.mode_set == CHASSIS_NO_FLOW_CHASSIS && chassis->chassis_set_msg.mode_last == CHASSIS_ZERO_CU)
+    {
+        *chassis->Ins_msg.Yaw_qvan = 0;
+        chassis->chassis_set_msg.wz_SetAngle = *chassis->Ins_msg.YawAngle;
+    }
+
+
+    chassis->chassis_set_msg.mode_last = chassis->chassis_set_msg.mode_set;
 }
 
 
@@ -145,11 +161,12 @@ static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
     {
         chassis->chassis_set_msg.vx_set =  FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vx_speed,
                                                                     vx_set,
-                                                                    0.01);
+                                                                    0.02);
     }
     else
     {
         chassis->chassis_set_msg.vx_set = 0;
+        chassis->chassis_set_msg.vx_speed.out = 0;
     }
 
     // vy 速度设置
@@ -157,12 +174,20 @@ static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
     {
         chassis->chassis_set_msg.vy_set = FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vy_speed,
                                                                     vy_set,
-                                                                    0.01);
+                                                                    0.02);
     }
     else
     {
         chassis->chassis_set_msg.vy_set = 0;
+        chassis->chassis_set_msg.vy_speed.out = 0;
     }
+
+///*********************************************  底盘跟随底盘情况下的角度设定  *********************************************///
+    if(chassis->chassis_set_msg.mode_set == CHASSIS_NO_FLOW_CHASSIS)
+    {
+        chassis->chassis_set_msg.wz_SetAngle = chassis->Ins_msg.yaw_all_angle + chassis->chassis_set_msg.wz_set * 0.01f;
+    }
+
 }
 
 
@@ -175,6 +200,8 @@ static void chassis_msg_update(CHASSIS_struct_t* chassis)
     chassis->wheel_speed_msg[1] = chassis->motor_msg[1].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
     chassis->wheel_speed_msg[2] = chassis->motor_msg[2].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
     chassis->wheel_speed_msg[3] = chassis->motor_msg[3].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
+
+    chassis->Ins_msg.yaw_all_angle = *chassis->Ins_msg.Yaw_qvan * 6.28f + *chassis->Ins_msg.YawAngle;
 }
 
 

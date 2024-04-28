@@ -6,6 +6,7 @@
 #include "REMOTE_task.h"
 #include "RM_motor.h"
 #include "Z_math.h"
+#include "GYRO_task.h"
 
 #define PI 3.1415926f
 
@@ -66,7 +67,6 @@ enum
 
 typedef struct 
 {
-    
     float speed_change_set[2];  /* 用来保存速度设置（通过改变后的 vx vy）*/
     int wz_jq;                  /*wz 方向进行计圈*/
     float wheel_speed_set[4];   /* 四个轮子的速度设置*/
@@ -75,6 +75,7 @@ typedef struct
     float vx_set;
     float vy_set;
     float wz_set;
+    float wz_SetAngle;              /* 底盘跟随底盘的时候的角度设置 */
     s16 current_set[4];             /*六个电机最终给与电流*/
     u8 mode_set;                    /* 模式设置 */
     u8 mode_last;                   /*上一次的模式*/
@@ -93,11 +94,22 @@ typedef struct
 
 
 
+typedef struct 
+{
+    float *YawAngle;
+    s32* Yaw_qvan;
+    float yaw_all_angle;
+}Gym_ins_struct_t;
+
+
+
 /// @brief 底盘总结构体
 typedef struct 
 {
     chassis_set_msg_t chassis_set_msg;          /* 底盘设置信息 */
     chassis_remote_msg_t chassis_remote;        /* 遥控信息 */
+
+    Gym_ins_struct_t Ins_msg;                   /* 陀螺仪信息 */
     float wheel_speed_msg[4];                   /* 四个轮子的速度反馈 */
     motor_return_msg_t motor_msg[4];    // 保存四个电机的数据
     PID_type_def wheel_speed_pid[4];    // 四个轮子速度PID

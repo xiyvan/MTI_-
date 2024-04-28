@@ -520,6 +520,11 @@
               <FileType>1</FileType>
               <FilePath>..\APP\CHASSIS_behave.c</FilePath>
             </File>
+            <File>
+              <FileName>GYRO_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\GYRO_task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -560,6 +565,16 @@
               <FileType>1</FileType>
               <FilePath>..\BSP\BSP_motor.c</FilePath>
             </File>
+            <File>
+              <FileName>BSP_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\BSP_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_gyro_accal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\BSP_gyro_accal.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -579,6 +594,16 @@
               <FileName>arm_cortexM4lf_math.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\Alhorithm\arm_cortexM4lf_math.lib</FilePath>
+            </File>
+            <File>
+              <FileName>AHRS.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\Alhorithm\AHRS.lib</FilePath>
+            </File>
+            <File>
+              <FileName>AHRS_middleware.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Alhorithm\AHRS_middleware.c</FilePath>
             </File>
           </Files>
         </Group>

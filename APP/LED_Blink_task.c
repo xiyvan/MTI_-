@@ -93,10 +93,7 @@ static void LED_Blink_init(void)
     time_list[2] = &LED_state_dis.chassis_motor_d[1];
     time_list[3] = &LED_state_dis.chassis_motor_d[2];
     time_list[4] = &LED_state_dis.chassis_motor_d[3];
-    time_list[5] = &LED_state_dis.chassis_motor_1_d[0];
-    time_list[6] = &LED_state_dis.chassis_motor_1_d[1];
 }
-
 
 
 

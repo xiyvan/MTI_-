@@ -116,8 +116,19 @@ float FZ_math_StepToSlope_cale(step_slope_msg_t* date,float set,float step)
 {
     date->set = set;
     date->step = step;
-    date->out = date->out + date->step;
-    if(date->out >= date->set)
+    if(set > 0)
+    {
+        date->out = date->out + date->step;
+    }
+    else
+    {
+        date->out = date->out - date->step;
+    }
+    if((set > 0) && (date->out >= date->set))
+    {
+        date->out = date->set;
+    }
+    else if((set < 0) && (date->out <= date->set))
     {
         date->out = date->set;
     }

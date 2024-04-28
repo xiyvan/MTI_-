@@ -41,3 +41,6 @@
 .\objects\bsp_motor.o: ..\APP\REMOTE_task.h
 .\objects\bsp_motor.o: ..\exti_driver\RM_motor.h
 .\objects\bsp_motor.o: ..\Alhorithm\Z_math.h
+.\objects\bsp_motor.o: ..\APP\GYRO_task.h
+.\objects\bsp_motor.o: ..\BSP\BSP_gyro_accal.h
+.\objects\bsp_motor.o: ..\APP\LED_Blink_task.h

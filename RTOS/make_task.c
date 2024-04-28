@@ -14,7 +14,6 @@
 #include "task.h"
 #include "LED_Blink_task.h"
 #include "BUZZER_task.h"
-#include "SERVOS_task.h"
 #include "CHASSIS_task.h"
 #include "GYRO_task.h"
 #include "CHASSIS_SOLVE.h"
@@ -53,4 +52,16 @@ void create_task(void)
 							(TaskHandle_t*)&CHASSIS_Handler			//任务结构体变量指针
 					);
 //**********************************************************************************
+//							   姿态解算任务创建
+	TaskHandle_t GYRO_Handler;
+	xTaskCreate((TaskFunction_t)GYRO_task,						//任务函数名称
+							(const char*  ) "GYRO_task",			
+							(uint16_t     ) 256,					//任务堆栈大小
+							(void*        )NULL,					//任务函数变量
+							(UBaseType_t  )3,						//任务优先级
+							(TaskHandle_t*)&GYRO_Handler			//任务结构体变量指针
+					);
+//**********************************************************************************
 }
+
+

@@ -24,7 +24,7 @@ static void solve_gym_msg(u16 cmd_id,u8* data);
 Remote_angle_t remote_angle;
 //Remote_power_limted_t remote_power_limted;
 Remote_speed_t Remote_speed;
-
+extern status_display_t LED_state_dis;
 
 
 
@@ -38,6 +38,7 @@ void CAN1_RX0_IRQHandler(void)
         CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);                               /*CAN接收函数*/
         if(RxMessage.StdId == REMOTE_ANGLE_HUAN || RxMessage.StdId == REMOTE_SPEED_SET)
         {
+            VLEDBlink_ofdetection_update(&LED_state_dis.Remote_time_out_d);         // 掉线回调
             solve_gym_msg(RxMessage.StdId,RxMessage.Data);
         }
     }

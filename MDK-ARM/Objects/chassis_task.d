@@ -40,6 +40,8 @@
 .\objects\chassis_task.o: ..\APP\REMOTE_task.h
 .\objects\chassis_task.o: ..\exti_driver\RM_motor.h
 .\objects\chassis_task.o: ..\Alhorithm\Z_math.h
+.\objects\chassis_task.o: ..\APP\GYRO_task.h
+.\objects\chassis_task.o: ..\BSP\BSP_gyro_accal.h
 .\objects\chassis_task.o: ..\BSP\BSP_CAN.h
 .\objects\chassis_task.o: ..\APP\LED_Blink_task.h
 .\objects\chassis_task.o: ..\Alhorithm\arm_math.h
