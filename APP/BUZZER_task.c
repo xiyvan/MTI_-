@@ -28,12 +28,12 @@ void buzzer_task(void *pvParameters)
             for(char i = 0; i < BUZZER_OUTTIME_NUM+1;i++)
             {
                 TIM_SetCompare3(TIM4, 10000);
-                vTaskDelay(200);
+                vTaskDelay(100);
                 TIM_SetCompare3(TIM4, 0);
-                vTaskDelay(200);
+                vTaskDelay(100);
             }
         }
-        vTaskDelay(1000);
+        vTaskDelay(500);
     }
 }
 

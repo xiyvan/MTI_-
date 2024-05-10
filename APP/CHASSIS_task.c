@@ -161,7 +161,7 @@ static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
     {
         chassis->chassis_set_msg.vx_set =  FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vx_speed,
                                                                     vx_set,
-                                                                    0.02);
+                                                                    0.015);
     }
     else
     {
@@ -174,7 +174,7 @@ static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
     {
         chassis->chassis_set_msg.vy_set = FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vy_speed,
                                                                     vy_set,
-                                                                    0.02);
+                                                                    0.015);
     }
     else
     {
@@ -185,7 +185,7 @@ static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
 ///*********************************************  底盘跟随底盘情况下的角度设定  *********************************************///
     if(chassis->chassis_set_msg.mode_set == CHASSIS_NO_FLOW_CHASSIS)
     {
-        chassis->chassis_set_msg.wz_SetAngle = chassis->Ins_msg.yaw_all_angle + chassis->chassis_set_msg.wz_set * 0.01f;
+        chassis->chassis_set_msg.wz_SetAngle -= chassis->chassis_set_msg.wz_set * 0.01f;		// 测得是反的所以这里加负号（根据实际情况来）
     }
 
 }
@@ -201,7 +201,7 @@ static void chassis_msg_update(CHASSIS_struct_t* chassis)
     chassis->wheel_speed_msg[2] = chassis->motor_msg[2].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
     chassis->wheel_speed_msg[3] = chassis->motor_msg[3].speed_s * 2 * PI * CHASSIS_WHEEL_RADIUS;
 
-    chassis->Ins_msg.yaw_all_angle = *chassis->Ins_msg.Yaw_qvan * 6.28f + *chassis->Ins_msg.YawAngle;
+    chassis->Ins_msg.yaw_all_angle = *chassis->Ins_msg.Yaw_qvan * 6.2831853071f + *chassis->Ins_msg.YawAngle;
 }
 
 

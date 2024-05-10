@@ -5,6 +5,7 @@
 #include "BSP_Tim.h"
 #include "BSP_Delay.h"
 #include "BSP_CAN.h"
+#include "BSP_spi.h"
 #include "mk_task.h"
 #include "FreeRTOS.h"
 #include "task.h"
@@ -17,7 +18,8 @@ int main(void)
 
  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 	LED_init();
-	//TIM4_PWM_init();
+	SPI1_Init();
+	TIM4_PWM_init();
 	//TIM1_PWM_init();
 	//TIM10_PWM_init();
 	USART1_Init();

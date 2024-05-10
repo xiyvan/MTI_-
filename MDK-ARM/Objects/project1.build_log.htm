@@ -21,34 +21,24 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-c:\Users\孤梦一\Desktop\云台试验\底盘部分\MDK-ARM\project1.uvprojx
-Project File Date:  04/28/2024
+C:\Users\孤梦一\Desktop\云台试验\底盘部分\MDK-ARM\project1.uvprojx
+Project File Date:  05/09/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling make_task.c...
-..\RTOS\mk_task.h(16): warning:  #14-D: extra text after expected end of preprocessing directive
-  #endif _MK_TASK_H_
+compiling GYRO_task.c...
 ..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
   typedef __attribute__((packed)) struct 
-..\RTOS\make_task.c: 2 warnings, 0 errors
-compiling BSP_motor.c...
-..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
-  typedef __attribute__((packed)) struct 
-..\BSP\BSP_motor.c: 1 warning, 0 errors
-compiling CHASSIS_task.c...
-..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
-  typedef __attribute__((packed)) struct 
-..\APP\CHASSIS_task.c: 1 warning, 0 errors
-compiling CHASSIS_behave.c...
-..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
-  typedef __attribute__((packed)) struct 
-..\APP\CHASSIS_behave.c: 1 warning, 0 errors
+..\APP\GYRO_task.c(88): warning:  #223-D: function "vTaskDelay" declared implicitly
+          vTaskDelay(100);
+..\APP\GYRO_task.c(154): warning:  #223-D: function "vTaskDelay" declared implicitly
+          vTaskDelay(1);
+..\APP\GYRO_task.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=21992 RO-data=2520 RW-data=368 ZI-data=79016  
+Program Size: Code=25120 RO-data=2532 RW-data=384 ZI-data=79584  
 FromELF: creating hex file...
-".\Objects\project1.axf" - 0 Error(s), 5 Warning(s).
+".\Objects\project1.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

@@ -6,7 +6,8 @@
 // 帧头
 #define REMOTE_HEAD 0XA5
 // 帧尾
-#define REMOTE_WEI 0X5A
+#define REMOTE_WEI1 0xff
+#define REMOTE_WEI2 0xaa
 
 
 #define REMOVE_S_DOWN 2
@@ -52,8 +53,17 @@ typedef struct __attribute__((packed))
 
 
 
+typedef struct 
+{
+    u8 step;
+    u8 date[20];
+    u8 date_p;
+}remote_solve_one_t;
 
 
+
+
+void remote_task(void *pvParameters);
 Remote_speed_t* get_speed_set_p(void);
 Remote_angle_t* get_angle_p(void);
 

@@ -21,10 +21,8 @@
 
 
 static u8 usart1_recever_buff = 0;                              //串口一接收缓冲
-volatile int data_len = 0;                                      /*串口一接收到的数据长度*/
 uint8_t usart1_dma_tx_buff[USART1_DMA_TX_BUFF_SIZE] = {0};      //串口一DMA发送缓冲
 uint8_t usart1_dma_rx_buff[USART1_DMA_RX_BUFF_SIZE];
-//extern u8 usart3_rx_data_buf[USART3_DMA_RX_BUFF_SIZE];
 
 void USART1_Init(void)
 {
@@ -58,7 +56,6 @@ void USART1_Init(void)
     USART_Init(USART1,&usart1_init_f);
     USART_Cmd(USART1,ENABLE);           //使能串口
 
-
     USART_ITConfig(USART1,USART_IT_IDLE,ENABLE);    //设置串口1的中断方式为空闲中断
     usart1_nvic_init.NVIC_IRQChannel = USART1_IRQn;         //设置中断源
     usart1_nvic_init.NVIC_IRQChannelPreemptionPriority = 1; //设置抢占优先级
@@ -66,12 +63,11 @@ void USART1_Init(void)
     usart1_nvic_init.NVIC_IRQChannelCmd = ENABLE;           //使能这个串口中断
     NVIC_Init(&usart1_nvic_init);
 
-
     usart1_dma_init.DMA_Channel = DMA_Channel_4;                            //DMA通道数
     usart1_dma_init.DMA_PeripheralBaseAddr = (u32)&(USART1->DR);            //外设地址
     usart1_dma_init.DMA_Memory0BaseAddr = (u32)usart1_dma_tx_buff;          //发送缓冲地址
     usart1_dma_init.DMA_DIR = DMA_DIR_MemoryToPeripheral;                   //DMA传输方向
-    usart1_dma_init.DMA_BufferSize = 500;                                   //数据传输量
+    usart1_dma_init.DMA_BufferSize = 50;                                   //数据传输量
     usart1_dma_init.DMA_PeripheralInc = DMA_PeripheralInc_Disable;          //DMA外设数据指针递增不使能
     usart1_dma_init.DMA_MemoryInc = DMA_MemoryInc_Enable;                   //DMA存储器数据指针递增使能
     usart1_dma_init.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;   //外设数据格式为1字节8位
@@ -91,7 +87,6 @@ void USART1_Init(void)
 
     USART_DMACmd(USART1,USART_DMAReq_Tx,ENABLE);                //使能串口DMA传输
     USART_DMACmd(USART1,USART_DMAReq_Rx,ENABLE);
-
 }
 
 

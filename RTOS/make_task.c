@@ -17,6 +17,7 @@
 #include "CHASSIS_task.h"
 #include "GYRO_task.h"
 #include "CHASSIS_SOLVE.h"
+#include "REMOTE_task.h"
 
 
 void create_task(void)
@@ -46,7 +47,7 @@ void create_task(void)
 	TaskHandle_t CHASSIS_Handler;
 	xTaskCreate((TaskFunction_t)Chassis_task,						//任务函数名称
 							(const char*  ) "Chassis_task",			
-							(uint16_t     ) 512,					//任务堆栈大小
+							(uint16_t     ) 315,					//任务堆栈大小
 							(void*        )NULL,					//任务函数变量
 							(UBaseType_t  )4,						//任务优先级
 							(TaskHandle_t*)&CHASSIS_Handler			//任务结构体变量指针
@@ -56,10 +57,20 @@ void create_task(void)
 	TaskHandle_t GYRO_Handler;
 	xTaskCreate((TaskFunction_t)GYRO_task,						//任务函数名称
 							(const char*  ) "GYRO_task",			
-							(uint16_t     ) 256,					//任务堆栈大小
+							(uint16_t     ) 128,					//任务堆栈大小
 							(void*        )NULL,					//任务函数变量
 							(UBaseType_t  )3,						//任务优先级
 							(TaskHandle_t*)&GYRO_Handler			//任务结构体变量指针
+					);
+//**********************************************************************************
+//							   云台通信任务创建
+	TaskHandle_t REMOTE_Handler;
+	xTaskCreate((TaskFunction_t)remote_task,						//任务函数名称
+							(const char*  ) "remote_task",			
+							(uint16_t     ) 128,					//任务堆栈大小
+							(void*        )NULL,					//任务函数变量
+							(UBaseType_t  )3,						//任务优先级
+							(TaskHandle_t*)&REMOTE_Handler			//任务结构体变量指针
 					);
 //**********************************************************************************
 }

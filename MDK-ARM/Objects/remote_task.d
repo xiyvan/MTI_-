@@ -40,3 +40,15 @@
 .\objects\remote_task.o: ..\BSP\BSP_CAN.h
 .\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\remote_task.o: ..\RTOS\include\FreeRTOS.h
+.\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\remote_task.o: ..\RTOS\include\FreeRTOSConfig.h
+.\objects\remote_task.o: ..\RTOS\include\projdefs.h
+.\objects\remote_task.o: ..\RTOS\include\portable.h
+.\objects\remote_task.o: ..\RTOS\include\deprecated_definitions.h
+.\objects\remote_task.o: ..\RTOS\portable\RVDS\ARM_CM4F\portmacro.h
+.\objects\remote_task.o: ..\RTOS\include\mpu_wrappers.h
+.\objects\remote_task.o: ..\RTOS\include\task.h
+.\objects\remote_task.o: ..\RTOS\include\list.h
+.\objects\remote_task.o: ..\Alhorithm\Fifo.h
+.\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdlib.h

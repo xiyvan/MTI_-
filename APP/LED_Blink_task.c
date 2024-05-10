@@ -18,6 +18,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "BSP_LED.h"
+#include "BSP_Usart.h"
 
 
 static void Now_Time_updata(u8* time);

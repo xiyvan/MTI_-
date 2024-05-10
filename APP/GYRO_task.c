@@ -26,7 +26,6 @@
 static void gyro_init(void);
 static void imu_cali_slove(float gyro[3], float accel[3], float mag[3], bmi088_real_data_t *bmi088, ist8310_real_data_t *ist8310);
 
-
 ///*********************************************************  变量定义   *****************************************************///
 
 float BMI088_ACCEL_SEN = BMI088_ACCEL_3G_SEN;
@@ -119,31 +118,31 @@ void GYRO_task(void *pvParameters)
 ///===================================================== endl  ==========================================================================///
         AHRS_update(INS_quat,timing_time,INS_gyro,accel_fliter_3,INS_mag);
         get_angle(INS_quat,INS_angle,INS_angle+1,INS_angle+2);
-        INS_angle[0] += 3.1415926;INS_angle[1] += 3.1415926;INS_angle[2] += 3.1415926;      // 把角度都拉到正数
+        INS_angle[0] += 3.1415926f;INS_angle[1] += 3.1415926f;INS_angle[2] += 3.1415926f;      // 把角度都拉到正数
 ///******************************************************* 记录圈数  *******************************************************************///
-        if((INS_angle[0] - last_INS_angle[0]) < -6.2)
+        if((INS_angle[0] - last_INS_angle[0]) < -6.28f)
         {
             ins_qvan[0] ++;
         }
-        else if((INS_angle[0] - last_INS_angle[0]) > 6.2)
+        else if((INS_angle[0] - last_INS_angle[0]) > 6.28f)
         {
             ins_qvan[0] --;
         }
 
-        if((INS_angle[1] - last_INS_angle[1]) < -5)
+        if((INS_angle[1] - last_INS_angle[1]) < -6.28f)
         {
             ins_qvan[1] --;
         }
-        else if((INS_angle[1] - last_INS_angle[1]) > 5)
+        else if((INS_angle[1] - last_INS_angle[1]) > 6.28f)
         {
             ins_qvan[1] ++;
         }
 
-        if((INS_angle[2] - last_INS_angle[2]) < -5)
+        if((INS_angle[2] - last_INS_angle[2]) < -6.28f)
         {
             ins_qvan[2] --;
         }
-        else if((INS_angle[2] - last_INS_angle[2]) > 5)
+        else if((INS_angle[2] - last_INS_angle[2]) > 6.28f)
         {
             ins_qvan[2] ++;
         }

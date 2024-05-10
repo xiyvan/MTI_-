@@ -17,10 +17,10 @@
 #define chassis_whell_speed_pid_maxout 16800.0f
 #define chassis_whell_speed_pid_maxiout 0.0f
 
-#define chassis_angle_pid_kp 0.0f
+#define chassis_angle_pid_kp 10.0f
 #define chassis_angle_pid_ki 0.0f
-#define chassis_angle_pid_kd 0.0f
-#define chassis_angle_pid_maxout 0.0f
+#define chassis_angle_pid_kd 200.0f
+#define chassis_angle_pid_maxout 3.0f
 #define chassis_angle_pid_maxiout 0.0f
 
 

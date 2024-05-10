@@ -56,6 +56,7 @@ void TIM4_PWM_init(void)
     TIM_ARRPreloadConfig(TIM4,ENABLE);                     //ARPE使能
 
     TIM_Cmd(TIM4,ENABLE);                                  //定时器使能
+		TIM_SetCompare3(TIM4, 0);
 
 }
 

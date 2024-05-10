@@ -40,6 +40,7 @@
 .\objects\main.o: ..\BSP\BSP_Tim.h
 .\objects\main.o: ..\BSP\BSP_Delay.h
 .\objects\main.o: ..\BSP\BSP_CAN.h
+.\objects\main.o: ..\BSP\BSP_spi.h
 .\objects\main.o: ..\RTOS\mk_task.h
 .\objects\main.o: ..\RTOS\include\FreeRTOS.h
 .\objects\main.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h

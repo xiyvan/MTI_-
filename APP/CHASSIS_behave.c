@@ -79,7 +79,7 @@ void chassis_revolve_solve(CHASSIS_struct_t* chassis)
 void chassis_follow_chassis_solve(CHASSIS_struct_t* chassis)
 {
     float wzv_set = 0.0f;
-    wzv_set = PID_cale(&chassis->angle_pid,chassis->chassis_set_msg.wz_SetAngle,chassis->Ins_msg.yaw_all_angle);
+    wzv_set = -PID_cale(&chassis->angle_pid,chassis->chassis_set_msg.wz_SetAngle,chassis->Ins_msg.yaw_all_angle);
 
     chassis->chassis_set_msg.wheel_speed_set[0] = chassis->chassis_set_msg.vx_set - chassis->chassis_set_msg.vy_set + wzv_set * CHASSIS_WZ_MOTION_PARSE_COEF;
     chassis->chassis_set_msg.wheel_speed_set[1] = chassis->chassis_set_msg.vx_set + chassis->chassis_set_msg.vy_set - wzv_set * CHASSIS_WZ_MOTION_PARSE_COEF;

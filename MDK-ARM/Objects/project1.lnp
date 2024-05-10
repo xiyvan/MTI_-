@@ -38,6 +38,7 @@
 "..\Alhorithm\arm_cortexM4lf_math.lib"
 "..\Alhorithm\AHRS.lib"
 ".\objects\ahrs_middleware.o"
+".\objects\fifo.o"
 ".\objects\croutine.o"
 ".\objects\event_groups.o"
 ".\objects\list.o"

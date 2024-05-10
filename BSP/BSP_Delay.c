@@ -56,19 +56,8 @@ void Delay_IIC(u32 s)
 //注意:nus的值,不要大于798915us(最大值即2^24/fac_us@fac_us=21)
 void Delay_us(u32 nus)
 {            
-       u32 temp;                  
-       SysTick->LOAD=nus*168; //时间加载，fac_us与时钟频率有关，例如：168Mhz时
-                                 //fac_us=168，168/168M=1us               
-       SysTick->VAL=0x00;         //清空计数器
-       SysTick->CTRL|=SysTick_CTRL_ENABLE_Msk ; //开始倒数      
-       do
-       {
-              temp=SysTick->CTRL;    //读取控制及状态寄存器的值
- 
-       }while((temp&0x01)&&!(temp&(1<<16))); //等待时间到达，使能且位16为0（未计到0）
-       SysTick->CTRL&=~SysTick_CTRL_ENABLE_Msk; //关闭计数器
-       SysTick->VAL =0X00;                      //清空计数器
- 
+    long x = 0;
+    for(x = 0;x < (168*nus);x++);
 }
 
 
@@ -79,11 +68,7 @@ void BMI088_delay_us(u32 time)
 
 void BMI088_delay_ms(u32 time)
 {
-    for(int x = 0;x < 1000;x++)
-    {
-        Delay_us(time);
-    }
-    
+	vTaskDelay(time);
 }
 
 //@brief systick定时器中断服务函数

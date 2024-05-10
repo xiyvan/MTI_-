@@ -30,6 +30,20 @@ void CAN2_RX0_IRQHandler(void)
         CAN_Receive(CAN2,CAN_FIFO0,&RxMessage);
         VLEDBlink_ofdetection_update(&LED_state_dis.chassis_motor_d[RxMessage.StdId - CAN_3508_RETURN]);    //电机掉线更新
         motor_msg_decode_3508(RxMessage.StdId - CAN_3508_RETURN,RxMessage.Data,Main_chassis.motor_msg);
+        VLEDBlink_ofdetection_update(&LED_state_dis.chassis_motor_d[RxMessage.StdId - CAN_3508_RETURN-1]);
+    }
+}
+
+
+/*CAN中断接收函数*/
+void CAN1_RX0_IRQHandler(void)
+{
+    CanRxMsg RxMessage;
+    if(CAN_GetITStatus(CAN1,CAN_IT_FMP0) != RESET)
+    {
+        CAN_ClearITPendingBit(CAN1, CAN_IT_FMP0);                               /*清除中断标志位*/
+        CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);                               /*CAN接收函数*/
+        
     }
 }
 
