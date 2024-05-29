@@ -27,7 +27,7 @@ typedef struct BMI088_REAL_DATA
 } bmi088_real_data_t;
 
 
-typedef __attribute__((packed)) struct 
+typedef struct __attribute__((packed))
 {
     u8 status;
     s16 accel[3];

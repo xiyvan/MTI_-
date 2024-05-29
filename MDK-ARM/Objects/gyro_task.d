@@ -43,3 +43,13 @@
 .\objects\gyro_task.o: ..\Alhorithm\Z_math.h
 .\objects\gyro_task.o: ..\Alhorithm\AHRS.h
 .\objects\gyro_task.o: ..\MDK-ARM\typedef_main.h
+.\objects\gyro_task.o: ..\RTOS\include\FreeRTOS.h
+.\objects\gyro_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gyro_task.o: ..\RTOS\include\FreeRTOSConfig.h
+.\objects\gyro_task.o: ..\RTOS\include\projdefs.h
+.\objects\gyro_task.o: ..\RTOS\include\portable.h
+.\objects\gyro_task.o: ..\RTOS\include\deprecated_definitions.h
+.\objects\gyro_task.o: ..\RTOS\portable\RVDS\ARM_CM4F\portmacro.h
+.\objects\gyro_task.o: ..\RTOS\include\mpu_wrappers.h
+.\objects\gyro_task.o: ..\RTOS\include\task.h
+.\objects\gyro_task.o: ..\RTOS\include\list.h

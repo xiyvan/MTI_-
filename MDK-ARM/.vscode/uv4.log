@@ -1,21 +1,8 @@
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\keil 5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling GYRO_task.c...
-..\APP\GYRO_task.h(30): warning:  #3108-D: attribute "packed" does not apply here
-  typedef __attribute__((packed)) struct 
-..\APP\GYRO_task.c(88): warning:  #223-D: function "vTaskDelay" declared implicitly
-          vTaskDelay(100);
-..\APP\GYRO_task.c(122): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          INS_angle[0] += 3.1415926;INS_angle[1] += 3.1415926;INS_angle[2] += 3.1415926;      // 把角度都拉到正数
-..\APP\GYRO_task.c(122): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          INS_angle[0] += 3.1415926;INS_angle[1] += 3.1415926;INS_angle[2] += 3.1415926;      // 把角度都拉到正数
-..\APP\GYRO_task.c(122): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-          INS_angle[0] += 3.1415926;INS_angle[1] += 3.1415926;INS_angle[2] += 3.1415926;      // 把角度都拉到正数
-..\APP\GYRO_task.c(154): warning:  #223-D: function "vTaskDelay" declared implicitly
-          vTaskDelay(1);
-..\APP\GYRO_task.c: 6 warnings, 0 errors
+compiling CHASSIS_behave.c...
 linking...
-Program Size: Code=25616 RO-data=2532 RW-data=384 ZI-data=79584  
+Program Size: Code=20160 RO-data=2632 RW-data=184 ZI-data=80320  
 FromELF: creating hex file...
-".\Objects\project1.axf" - 0 Error(s), 6 Warning(s).
+".\Objects\project1.axf" - 0 Error(s), 0 Warning(s).
 Build Time Elapsed:  00:00:01

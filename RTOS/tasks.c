@@ -3720,7 +3720,7 @@ static void prvCheckTasksWaitingTermination( void )
                        TaskStatus_t * pxTaskStatus,
                        BaseType_t xGetFreeStackSpace,
                        eTaskState eState )
-    { 
+    {
         TCB_t * pxTCB;
 
         /* xTask is NULL then get the state of the calling task. */

@@ -43,6 +43,7 @@
 .\objects\chassis_behave.o: ..\Alhorithm\Z_math.h
 .\objects\chassis_behave.o: ..\APP\GYRO_task.h
 .\objects\chassis_behave.o: ..\BSP\BSP_gyro_accal.h
+.\objects\chassis_behave.o: ..\RTOS\mk_task.h
 .\objects\chassis_behave.o: ..\Alhorithm\arm_math.h
 .\objects\chassis_behave.o: ..\CMSIS\core_cm4.h
 .\objects\chassis_behave.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h

@@ -46,4 +46,5 @@
 .\objects\led_blink_task.o: ..\RTOS\include\task.h
 .\objects\led_blink_task.o: ..\RTOS\include\list.h
 .\objects\led_blink_task.o: ..\BSP\BSP_LED.h
-.\objects\led_blink_task.o: ..\BSP\BSP_Usart.h
+.\objects\led_blink_task.o: ..\APP\CK_Timeout_task.h
+.\objects\led_blink_task.o: ..\RTOS\mk_task.h

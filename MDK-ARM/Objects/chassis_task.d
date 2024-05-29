@@ -42,13 +42,13 @@
 .\objects\chassis_task.o: ..\Alhorithm\Z_math.h
 .\objects\chassis_task.o: ..\APP\GYRO_task.h
 .\objects\chassis_task.o: ..\BSP\BSP_gyro_accal.h
+.\objects\chassis_task.o: ..\RTOS\mk_task.h
 .\objects\chassis_task.o: ..\BSP\BSP_CAN.h
 .\objects\chassis_task.o: ..\APP\LED_Blink_task.h
 .\objects\chassis_task.o: ..\Alhorithm\arm_math.h
 .\objects\chassis_task.o: ..\CMSIS\core_cm4.h
 .\objects\chassis_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\chassis_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\math.h
-.\objects\chassis_task.o: ..\APP\CHASSIS_behave.h
 .\objects\chassis_task.o: ..\RTOS\include\FreeRTOS.h
 .\objects\chassis_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\chassis_task.o: ..\RTOS\include\FreeRTOSConfig.h

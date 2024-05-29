@@ -58,7 +58,7 @@ void USART1_Init(void)
 
     USART_ITConfig(USART1,USART_IT_IDLE,ENABLE);    //设置串口1的中断方式为空闲中断
     usart1_nvic_init.NVIC_IRQChannel = USART1_IRQn;         //设置中断源
-    usart1_nvic_init.NVIC_IRQChannelPreemptionPriority = 1; //设置抢占优先级
+    usart1_nvic_init.NVIC_IRQChannelPreemptionPriority = 0; //设置抢占优先级
     usart1_nvic_init.NVIC_IRQChannelSubPriority = 0;        //设置响应优先级
     usart1_nvic_init.NVIC_IRQChannelCmd = ENABLE;           //使能这个串口中断
     NVIC_Init(&usart1_nvic_init);

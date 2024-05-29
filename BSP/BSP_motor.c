@@ -13,10 +13,10 @@
 #include "BSP_CAN.h"
 #include "CHASSIS_task.h"
 #include "RM_motor.h"
-#include "LED_Blink_task.h"
+#include "CK_Timeout_task.h"
+#include "mk_task.h"
 
 
-extern status_display_t LED_state_dis;
 extern CHASSIS_struct_t Main_chassis;
 
 
@@ -28,9 +28,8 @@ void CAN2_RX0_IRQHandler(void)
     {
         CAN_ClearITPendingBit(CAN2,CAN_IT_FMP0);
         CAN_Receive(CAN2,CAN_FIFO0,&RxMessage);
-        VLEDBlink_ofdetection_update(&LED_state_dis.chassis_motor_d[RxMessage.StdId - CAN_3508_RETURN]);    //电机掉线更新
         motor_msg_decode_3508(RxMessage.StdId - CAN_3508_RETURN,RxMessage.Data,Main_chassis.motor_msg);
-        VLEDBlink_ofdetection_update(&LED_state_dis.chassis_motor_d[RxMessage.StdId - CAN_3508_RETURN-1]);
+        CkTime_DriverTimeNew(RxMessage.StdId - CAN_3508_RETURN -1 + TIMEOUT_WHEEL_SPEED_MOTOR1);
     }
 }
 
@@ -43,7 +42,10 @@ void CAN1_RX0_IRQHandler(void)
     {
         CAN_ClearITPendingBit(CAN1, CAN_IT_FMP0);                               /*清除中断标志位*/
         CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);                               /*CAN接收函数*/
-        
+    #if (CAR_TYPE == CAR_TYPE_Caster_wheel)
+        motor_msg_decode_6020(RxMessage.StdId - CAN_6010_RETURN,RxMessage.Data,Main_chassis.angle_motor_msg);
+        CkTime_DriverTimeNew(RxMessage.StdId - CAN_6010_RETURN -1 + TIMEOUT_WHEEL_ANGLE_MOTOR1);
+    #endif
     }
 }
 

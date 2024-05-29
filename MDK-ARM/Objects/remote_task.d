@@ -36,7 +36,8 @@
 .\objects\remote_task.o: ..\Drivers\inc\stm32f4xx_dcmi.h
 .\objects\remote_task.o: ..\Drivers\inc\stm32f4xx_fsmc.h
 .\objects\remote_task.o: ..\BSP\BSP_Usart.h
-.\objects\remote_task.o: ..\APP\LED_Blink_task.h
+.\objects\remote_task.o: ..\APP\CK_Timeout_task.h
+.\objects\remote_task.o: ..\RTOS\mk_task.h
 .\objects\remote_task.o: ..\BSP\BSP_CAN.h
 .\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdio.h

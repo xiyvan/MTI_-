@@ -10,19 +10,15 @@
 // 根号2的值
 #define CHASSIS_BEHAVE_SQRT_2 1.414213f
 
+// PI/2
 #define CHASSIS_BEHAVE_PI_2 1.57079f
 
+#define CHASSIS_BEHAVE_PI_4 0.785395f
+
+// 舵轮的轮子方向死区角度
+#define CHASSIS_DUO_DEAB_ANGLE 0.1f
 
 
-/// 舵轮解算需要的结构体变量
-typedef struct 
-{
-    float vxm[4];       // 单个轮子 旋转速度分解后的 x方向 值
-    float vym[4];       // 同上
-
-    float angle[4];     // 最终解算出来的轮子角度
-    float speed[4];     // 最终解算出来的轮子的速度
-}chassis_solve_duo_t;
 
 
 

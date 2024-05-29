@@ -37,3 +37,5 @@
 .\objects\buzzer_task.o: ..\Drivers\inc\stm32f4xx_dcmi.h
 .\objects\buzzer_task.o: ..\Drivers\inc\stm32f4xx_fsmc.h
 .\objects\buzzer_task.o: ..\APP\LED_Blink_task.h
+.\objects\buzzer_task.o: ..\APP\CK_Timeout_task.h
+.\objects\buzzer_task.o: ..\RTOS\mk_task.h

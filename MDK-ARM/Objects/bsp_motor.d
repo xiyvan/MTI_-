@@ -43,4 +43,5 @@
 .\objects\bsp_motor.o: ..\Alhorithm\Z_math.h
 .\objects\bsp_motor.o: ..\APP\GYRO_task.h
 .\objects\bsp_motor.o: ..\BSP\BSP_gyro_accal.h
-.\objects\bsp_motor.o: ..\APP\LED_Blink_task.h
+.\objects\bsp_motor.o: ..\RTOS\mk_task.h
+.\objects\bsp_motor.o: ..\APP\CK_Timeout_task.h

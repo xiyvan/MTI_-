@@ -16,7 +16,8 @@ int main(void)
 {
 	/*初始化用*/
 
- 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+
+   	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 	LED_init();
 	SPI1_Init();
 	TIM4_PWM_init();
@@ -33,8 +34,8 @@ int main(void)
 	vTaskStartScheduler();
 	while(1)
 	{
-		 
- 	}
+		
+	}
 }
 
 

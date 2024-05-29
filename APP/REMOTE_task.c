@@ -9,7 +9,7 @@
 
 #include "REMOTE_task.h"
 #include "BSP_Usart.h"
-#include "LED_Blink_task.h"
+#include "CK_Timeout_task.h"
 #include "BSP_CAN.h"
 #include "string.h"
 #include "stdio.h"
@@ -28,14 +28,13 @@ static void one_byte_solve(u8 date,remote_solve_one_t* one_where);
 
 
 
-
 FIFO_t remote_fifo;
 remote_solve_one_t remote_step;
 u8 remote_fifo_queue[REMOTE_FIFO_SIZE] = {0};
 Remote_angle_t remote_angle;
 //Remote_power_limted_t remote_power_limted;
 Remote_speed_t Remote_speed;
-extern status_display_t LED_state_dis;
+
 extern uint8_t usart1_dma_rx_buff[USART1_DMA_RX_BUFF_SIZE];
 
 
@@ -70,7 +69,7 @@ void USART1_IRQHandler(void)
         rc_tmp=USART1->SR;
         rc_tmp=USART1->DR;                                  /*访问SR & DR是为了清除中断标志位*/
         data_len = USART1_DMA_RX_DATA_LEN - DMA_GetCurrDataCounter(DMA2_Stream2);       /*设置的接受长度 - 剩余的长度 = 本次接收的长度*/
-			Fifo_AddNum(&remote_fifo,usart1_dma_rx_buff,data_len);               /*数据处理函数*/
+		Fifo_AddNum(&remote_fifo,usart1_dma_rx_buff,data_len);               /*数据处理函数*/
         DMA_ClearITPendingBit(DMA2_Stream2, DMA_IT_TCIF2);              /*DMA传输完成标志位*/
         DMA_ClearITPendingBit(DMA2_Stream2, DMA_IT_TEIF2);              /*DMA传输错误标志位*/
     }
@@ -88,12 +87,13 @@ static void solve_gym_msg(u16 cmd_id,u8* data)
     case REMOTE_ANGLE_HUAN:
         {
             memcpy(&remote_angle,data,sizeof(Remote_angle_t));
+						CkTime_DriverTimeNew(TIMEOUT_REMOTE_TIMEOUT);     // 掉线检测回调
         }break;
         
     case REMOTE_SPEED_SET:
         {
             memcpy(&Remote_speed,data,sizeof(Remote_speed_t));
-            VLEDBlink_ofdetection_update(&LED_state_dis.Remote_time_out_d);     // 掉线检测回调
+            CkTime_DriverTimeNew(TIMEOUT_REMOTE_TIMEOUT);     // 掉线检测回调
         }break;
 /*
     case REMOTE_POWER_LIMTED:

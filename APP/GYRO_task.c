@@ -20,6 +20,8 @@
 #include "Z_math.h"
 #include "AHRS.h"
 #include "typedef_main.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 ///*********************************************************  函数声明  ******************************************************///
 
