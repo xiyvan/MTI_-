@@ -42,5 +42,7 @@ void first_order_filter_cali(first_order_filter_type_t *first_order_filter_type,
 // 阶跃变斜坡
 float FZ_math_StepToSlope_cale(step_slope_msg_t* date,float set,float step);
 
+// 死区限制
+float FZ_math_deadzone_limt(float dead,float input,float mid);
 
 #endif

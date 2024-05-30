@@ -65,7 +65,7 @@ void create_task(void)
 //**********************************************************************************
 //							   姿态解算任务创建
 	TaskHandle_t GYRO_Handler;
-	xTaskCreate((TaskFunction_t)remote_task,						//任务函数名称
+	xTaskCreate((TaskFunction_t)GYRO_task,						//任务函数名称
 							(const char*  ) "GYRO_task",			
 							(uint16_t     ) 256,					//任务堆栈大小
 							(void*        )NULL,					//任务函数变量

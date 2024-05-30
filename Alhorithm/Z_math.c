@@ -96,7 +96,7 @@ void first_order_filter_cali(first_order_filter_type_t *first_order_filter_type,
 {
     first_order_filter_type->input = input;
     first_order_filter_type->out =
-        first_order_filter_type->num[0] / (first_order_filter_type->num[0] + first_order_filter_type->frame_period) * first_order_filter_type->out + first_order_filter_type->frame_period / (first_order_filter_type->num[0] + first_order_filter_type->frame_period) * first_order_filter_type->input;
+    first_order_filter_type->num[0] / (first_order_filter_type->num[0] + first_order_filter_type->frame_period) * first_order_filter_type->out + first_order_filter_type->frame_period / (first_order_filter_type->num[0] + first_order_filter_type->frame_period) * first_order_filter_type->input;
 }
 
 
@@ -135,3 +135,20 @@ float FZ_math_StepToSlope_cale(step_slope_msg_t* date,float set,float step)
     return date->out;
 }
 
+
+/// @brief 死区限制
+/// @param dead 死区范围
+/// @param input 输入
+/// @param mid 中值
+/// @return 限制后的数值
+float FZ_math_deadzone_limt(float dead,float input,float mid)
+{
+    if((input >= mid - dead) && (input < mid + dead))
+    {
+        return mid;
+    }
+    else
+    {
+        return input;
+    }
+}

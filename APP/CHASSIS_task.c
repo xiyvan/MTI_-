@@ -65,7 +65,7 @@ void Chassis_task(void *pvParameters)
 }
 
 
-  
+
 
 
 
@@ -322,7 +322,7 @@ static void chassis_cale(CHASSIS_struct_t* chassis)
                                                                     chassis->angle_motor_msg[2].speed_s);
             chassis->chassis_set_msg.current_set[7] = PID_cale(&chassis->wheel_angle_speed_pid[3],
                                                                     chassis->wheel_angle_angle_pid[3].out,
-                                                                    chassis->angle_motor_msg[3].speed_s)
+                                                                    chassis->angle_motor_msg[3].speed_s);
         }break;
     #endif
         default:break;
