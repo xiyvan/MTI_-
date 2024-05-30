@@ -765,7 +765,7 @@ I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
 I (..\APP\LED_Blink_task.h)(0x6630B1E6)
 I (..\APP\CK_Timeout_task.h)(0x6651A764)
 I (..\RTOS\mk_task.h)(0x665663DA)
-F (..\APP\CHASSIS_task.c)(0x6657F955)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_task.o --omf_browse .\objects\chassis_task.crf --depend .\objects\chassis_task.d)
+F (..\APP\CHASSIS_task.c)(0x6657FC77)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_task.o --omf_browse .\objects\chassis_task.crf --depend .\objects\chassis_task.d)
 I (..\APP\CHASSIS_task.h)(0x665715DF)
 I (..\BSP\BSP_motor.h)(0x66115780)
 I (..\MDK-ARM\stm32f4xx.h)(0x66115780)
@@ -824,6 +824,7 @@ I (..\RTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x64020E50)
 I (..\RTOS\include\mpu_wrappers.h)(0x64020E50)
 I (..\RTOS\include\task.h)(0x64020E50)
 I (..\RTOS\include\list.h)(0x64020E50)
+I (..\APP\CHASSIS_behave.h)(0x66566581)
 F (..\APP\REMOTE_task.c)(0x6651DBC7)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\remote_task.o --omf_browse .\objects\remote_task.crf --depend .\objects\remote_task.d)
 I (..\APP\REMOTE_task.h)(0x6638E2AB)
 I (..\MDK-ARM\stm32f4xx.h)(0x66115780)
