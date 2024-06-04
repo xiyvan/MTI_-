@@ -106,7 +106,7 @@ void chassis_follow_chassis_solve_D(CHASSIS_struct_t* chassis,chassis_solve_duo_
 {
     float wzv_set = 0.0f;
     wzv_set = -PID_cale(&chassis->angle_pid,chassis->chassis_set_msg.wz_SetAngle,chassis->Ins_msg.yaw_all_angle);
-    wzv_set = FZ_math_deadzone_limt(0.1f,wzv_set,0.0f);
+    wzv_set = FZ_math_deadzone_limt(0.1f,wzv_set,0);
     ///*****************************  把旋转速度分解到vx与vy上面  *********************************************///
     date->vxm[0] = chassis->chassis_set_msg.vx_set + wzv_set / CHASSIS_BEHAVE_SQRT_2;
     date->vym[0] = chassis->chassis_set_msg.vy_set + wzv_set / CHASSIS_BEHAVE_SQRT_2;
@@ -139,6 +139,7 @@ void chassis_follow_chassis_solve_D(CHASSIS_struct_t* chassis,chassis_solve_duo_
         else if((date->vxm[i] == 0) && (date->vym[i] != 0))
         {
             // 当 x 速度等于 0 的时候
+            /*
             if(date->vym[i] > 0)
             {
                 date->angle[i] = CHASSIS_BEHAVE_PI_2;
@@ -146,15 +147,19 @@ void chassis_follow_chassis_solve_D(CHASSIS_struct_t* chassis,chassis_solve_duo_
             else
             {
                 date->angle[i] = -CHASSIS_BEHAVE_PI_2;
-            }
+            }*/
+            date->angle[i] = -CHASSIS_BEHAVE_PI_2;
+            date->speed[i] = date->vym[i];
+            /*
             if(date->vym[i] > 0)
             {
-                date->speed[i] = date->vym[i];
+                
             }
             else if(date->vym[i] < 0)
             {
                 date->speed[i] = -date->vym[i];
             }
+            */
         }
         else if((date->vxm[i] != 0) && (date->vym[i] == 0))
         {

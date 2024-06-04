@@ -6,6 +6,7 @@
     1.0.1 添加了浮点型数据的限制函数        23.10.19
     1.0.2 添加了双向补偿函数                23.12.15
     1.0.3 添加了阶跃函数转斜坡函数          24.4.23
+    1.0.4 添加了卡尔曼滤波                  24.6.3
 
     数学运算库
 *******************************************
@@ -73,7 +74,7 @@ float FZ_math_bidire_compen(float o_con,float n_con,float input)
 }
 
 
-
+///**********************************************************  低通滤波  **************************************************************///
 
 /// @brief 低通滤波初始化
 /// @param first_order_filter_type 低通滤波结构体变量指针
@@ -86,7 +87,6 @@ void first_order_filter_init(first_order_filter_type_t *first_order_filter_type,
     first_order_filter_type->input = 0.0f;
     first_order_filter_type->out = 0.0f;
 }
-
 
 
 /// @brief 低通滤波计算
@@ -102,7 +102,7 @@ void first_order_filter_cali(first_order_filter_type_t *first_order_filter_type,
 
 
 
-
+///********************************************************** 阶跃转斜坡信号  *****************************************************************///
 
 
 
@@ -136,6 +136,8 @@ float FZ_math_StepToSlope_cale(step_slope_msg_t* date,float set,float step)
 }
 
 
+///******************************************************************************* 死区限制  *****************************************************///
+
 /// @brief 死区限制
 /// @param dead 死区范围
 /// @param input 输入
@@ -152,3 +154,53 @@ float FZ_math_deadzone_limt(float dead,float input,float mid)
         return input;
     }
 }
+
+
+
+///***************************************************************************** 卡尔曼滤波  ********************************************************///
+
+
+// 初始化卡尔曼滤波器
+void KalmanFilter_Init(KalmanFilter *kf, float Q, float R, float initial_estimate, float initial_error_covariance) {
+    kf->Q = Q;
+    kf->R = R;
+    kf->x = initial_estimate;
+    kf->P = initial_error_covariance;
+}
+
+
+
+// 卡尔曼滤波更新
+void KalmanFilter_Update(KalmanFilter *kf, float measurement) {
+    // 预测更新
+    kf->P = kf->P + kf->Q;
+
+    // 计算卡尔曼增益
+    kf->K = kf->P / (kf->P + kf->R);
+
+    // 更新状态估计
+    kf->x = kf->x + kf->K * (measurement - kf->x);
+
+    // 更新估计协方差
+    kf->P = (1 - kf->K) * kf->P;
+}
+
+
+
+///****************************************************** 均值滤波  ********************************************************///
+
+/// @brief 均值滤波
+/// @param date 均值滤波数据结构体
+unsigned short SZ_math_MeanFilt(MeanFilt_msg_t* date)
+{
+    date->temp[2] = date->temp[1];
+    date->temp[1] = date->temp[0];
+    date->temp[0] = date->input;
+
+    date->out = (date->temp[2] + date->temp[1] + date->temp[0]) / 3;
+    return date->out;
+}
+
+
+///****************************************************  endl  ************************************************************///
+

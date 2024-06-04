@@ -182,7 +182,7 @@ I (..\APP\CHASSIS_task.h)(0x665715DF)
 I (..\BSP\BSP_motor.h)(0x66115780)
 I (..\APP\REMOTE_task.h)(0x6638E2AB)
 I (..\exti_driver\RM_motor.h)(0x66115780)
-I (..\Alhorithm\Z_math.h)(0x6657FB23)
+I (..\Alhorithm\Z_math.h)(0x665DC231)
 I (..\APP\CK_Timeout_task.h)(0x6651A764)
 F (..\Drivers\src\misc.c)(0x66115780)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\misc.o --omf_browse .\objects\misc.crf --depend .\objects\misc.d)
 I (..\Drivers\inc\misc.h)(0x66115780)
@@ -805,7 +805,7 @@ I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
 I (..\Alhorithm\PID.h)(0x66115780)
 I (..\APP\REMOTE_task.h)(0x6638E2AB)
 I (..\exti_driver\RM_motor.h)(0x66115780)
-I (..\Alhorithm\Z_math.h)(0x6657FB23)
+I (..\Alhorithm\Z_math.h)(0x665DC231)
 I (..\APP\GYRO_task.h)(0x6651A356)
 I (..\BSP\BSP_gyro_accal.h)(0x660A5EDC)
 I (..\RTOS\mk_task.h)(0x665663DA)
@@ -879,7 +879,7 @@ I (..\RTOS\include\task.h)(0x64020E50)
 I (..\RTOS\include\list.h)(0x64020E50)
 I (..\Alhorithm\Fifo.h)(0x660E28EE)
 I (D:\keil 5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
-F (..\APP\CHASSIS_behave.c)(0x6657FBA6)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_behave.o --omf_browse .\objects\chassis_behave.crf --depend .\objects\chassis_behave.d)
+F (..\APP\CHASSIS_behave.c)(0x6658139E)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\chassis_behave.o --omf_browse .\objects\chassis_behave.crf --depend .\objects\chassis_behave.d)
 I (..\APP\CHASSIS_behave.h)(0x66566581)
 I (..\MDK-ARM\stm32f4xx.h)(0x66115780)
 I (..\CMSIS\core_cm4.h)(0x66115780)
@@ -920,7 +920,7 @@ I (..\BSP\BSP_motor.h)(0x66115780)
 I (..\Alhorithm\PID.h)(0x66115780)
 I (..\APP\REMOTE_task.h)(0x6638E2AB)
 I (..\exti_driver\RM_motor.h)(0x66115780)
-I (..\Alhorithm\Z_math.h)(0x6657FB23)
+I (..\Alhorithm\Z_math.h)(0x665DC231)
 I (..\APP\GYRO_task.h)(0x6651A356)
 I (..\BSP\BSP_gyro_accal.h)(0x660A5EDC)
 I (..\RTOS\mk_task.h)(0x665663DA)
@@ -968,7 +968,7 @@ I (..\Alhorithm\PID.h)(0x66115780)
 I (..\BSP\BMI088driver.h)(0x660E2953)
 I (..\BSP\BMI088reg.h)(0x63128736)
 I (..\BSP\BSP_pwm.h)(0x66115780)
-I (..\Alhorithm\Z_math.h)(0x6657FB23)
+I (..\Alhorithm\Z_math.h)(0x665DC231)
 I (..\Alhorithm\AHRS.h)(0x660E0E22)
 I (..\MDK-ARM\typedef_main.h)(0x660E0E79)
 I (..\RTOS\include\FreeRTOS.h)(0x649273E0)
@@ -1288,7 +1288,7 @@ I (..\APP\CHASSIS_task.h)(0x665715DF)
 I (..\Alhorithm\PID.h)(0x66115780)
 I (..\APP\REMOTE_task.h)(0x6638E2AB)
 I (..\exti_driver\RM_motor.h)(0x66115780)
-I (..\Alhorithm\Z_math.h)(0x6657FB23)
+I (..\Alhorithm\Z_math.h)(0x665DC231)
 I (..\APP\GYRO_task.h)(0x6651A356)
 I (..\BSP\BSP_gyro_accal.h)(0x660A5EDC)
 I (..\RTOS\mk_task.h)(0x665663DA)
@@ -1405,8 +1405,8 @@ I (..\Drivers\inc\stm32f4xx_can.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_dac.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_dcmi.h)(0x66115780)
 I (..\Drivers\inc\stm32f4xx_fsmc.h)(0x66115780)
-F (..\Alhorithm\Z_math.c)(0x6657FB00)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\z_math.o --omf_browse .\objects\z_math.crf --depend .\objects\z_math.d)
-I (..\Alhorithm\Z_math.h)(0x6657FB23)
+F (..\Alhorithm\Z_math.c)(0x665DD4AC)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\z_math.o --omf_browse .\objects\z_math.crf --depend .\objects\z_math.d)
+I (..\Alhorithm\Z_math.h)(0x665DC231)
 F (..\Alhorithm\arm_cortexM4lf_math.lib)(0x63128736)()
 F (..\Alhorithm\AHRS.lib)(0x638C7798)()
 F (..\Alhorithm\AHRS_middleware.c)(0x660E0FD5)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\CMSIS -I ..\Drivers\inc -I ..\BSP -I ..\Alhorithm -I ..\RTOS\include -I ..\RTOS\portable\RVDS\ARM_CM4F -I ..\RTOS -I ..\APP -I ..\exti_driver -I "D:\keil 5\ARM\CMSIS-DSP\1.14.2\Include" -I ..\leg_solve-I"D:\keil 5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="538" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -D__CC_ARM -D__FPU_USED="1"-o .\objects\ahrs_middleware.o --omf_browse .\objects\ahrs_middleware.crf --depend .\objects\ahrs_middleware.d)
