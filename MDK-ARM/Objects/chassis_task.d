@@ -60,3 +60,4 @@
 .\objects\chassis_task.o: ..\RTOS\include\task.h
 .\objects\chassis_task.o: ..\RTOS\include\list.h
 .\objects\chassis_task.o: ..\APP\CHASSIS_behave.h
+.\objects\chassis_task.o: ..\APP\CHASSIS_POWER.h

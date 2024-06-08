@@ -530,6 +530,11 @@
               <FileType>1</FileType>
               <FilePath>..\APP\CK_Timeout_task.c</FilePath>
             </File>
+            <File>
+              <FileName>CHASSIS_POWER.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\CHASSIS_POWER.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

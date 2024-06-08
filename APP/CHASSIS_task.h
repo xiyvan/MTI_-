@@ -14,15 +14,15 @@
 
 
 // 舵轮转向电机零点修正
-#define chassis_duo_motor_cali1 3.7406f
-#define chassis_duo_motor_cali2 3.01964116f
-#define chassis_duo_motor_cali3 5.90659285f
-#define chassis_duo_motor_cali4 4.1570878f
+#define chassis_duo_motor_cali1 3.75134993f
+#define chassis_duo_motor_cali2 3.01734018f
+#define chassis_duo_motor_cali3 5.87974834f
+#define chassis_duo_motor_cali4 4.07655382f
 
 // 底盘轮子速度PID
-#define chassis_whell_speed_pid_kp 8000.0f
+#define chassis_whell_speed_pid_kp 9000.0f
 #define chassis_whell_speed_pid_ki 0.0f
-#define chassis_whell_speed_pid_kd 1.0f
+#define chassis_whell_speed_pid_kd 2.0f
 #define chassis_whell_speed_pid_maxout 16800.0f
 #define chassis_whell_speed_pid_maxiout 0.0f
 

@@ -25,6 +25,7 @@
 ".\objects\chassis_behave.o"
 ".\objects\gyro_task.o"
 ".\objects\ck_timeout_task.o"
+".\objects\chassis_power.o"
 ".\objects\bsp_led.o"
 ".\objects\bsp_delay.o"
 ".\objects\bsp_usart.o"
