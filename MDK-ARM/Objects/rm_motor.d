@@ -2,7 +2,7 @@
 .\objects\rm_motor.o: ..\exti_driver\RM_motor.h
 .\objects\rm_motor.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\rm_motor.o: ..\CMSIS\core_cm4.h
-.\objects\rm_motor.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\rm_motor.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\rm_motor.o: ..\CMSIS\core_cmInstr.h
 .\objects\rm_motor.o: ..\CMSIS\core_cmFunc.h
 .\objects\rm_motor.o: ..\CMSIS\core_cm4_simd.h

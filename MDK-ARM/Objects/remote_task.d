@@ -2,7 +2,7 @@
 .\objects\remote_task.o: ..\APP\REMOTE_task.h
 .\objects\remote_task.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\remote_task.o: ..\CMSIS\core_cm4.h
-.\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\remote_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\remote_task.o: ..\CMSIS\core_cmInstr.h
 .\objects\remote_task.o: ..\CMSIS\core_cmFunc.h
 .\objects\remote_task.o: ..\CMSIS\core_cm4_simd.h
@@ -39,10 +39,10 @@
 .\objects\remote_task.o: ..\APP\CK_Timeout_task.h
 .\objects\remote_task.o: ..\RTOS\mk_task.h
 .\objects\remote_task.o: ..\BSP\BSP_CAN.h
-.\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\remote_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\remote_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\remote_task.o: ..\RTOS\include\FreeRTOS.h
-.\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\remote_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\remote_task.o: ..\RTOS\include\FreeRTOSConfig.h
 .\objects\remote_task.o: ..\RTOS\include\projdefs.h
 .\objects\remote_task.o: ..\RTOS\include\portable.h
@@ -52,4 +52,4 @@
 .\objects\remote_task.o: ..\RTOS\include\task.h
 .\objects\remote_task.o: ..\RTOS\include\list.h
 .\objects\remote_task.o: ..\Alhorithm\Fifo.h
-.\objects\remote_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\remote_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdlib.h

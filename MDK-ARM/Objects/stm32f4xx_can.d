@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_can.o: ..\Drivers\inc\stm32f4xx_can.h
 .\objects\stm32f4xx_can.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\stm32f4xx_can.o: ..\CMSIS\core_cm4.h
-.\objects\stm32f4xx_can.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_can.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\stm32f4xx_can.o: ..\CMSIS\core_cmInstr.h
 .\objects\stm32f4xx_can.o: ..\CMSIS\core_cmFunc.h
 .\objects\stm32f4xx_can.o: ..\CMSIS\core_cm4_simd.h

@@ -2,7 +2,7 @@
 .\objects\chassis_behave.o: ..\APP\CHASSIS_behave.h
 .\objects\chassis_behave.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\chassis_behave.o: ..\CMSIS\core_cm4.h
-.\objects\chassis_behave.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\chassis_behave.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\chassis_behave.o: ..\CMSIS\core_cmInstr.h
 .\objects\chassis_behave.o: ..\CMSIS\core_cmFunc.h
 .\objects\chassis_behave.o: ..\CMSIS\core_cm4_simd.h
@@ -46,5 +46,5 @@
 .\objects\chassis_behave.o: ..\RTOS\mk_task.h
 .\objects\chassis_behave.o: ..\Alhorithm\arm_math.h
 .\objects\chassis_behave.o: ..\CMSIS\core_cm4.h
-.\objects\chassis_behave.o: D:\keil 5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\chassis_behave.o: D:\keil 5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\chassis_behave.o: C:\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\chassis_behave.o: C:\MDK\ARM\ARMCC\Bin\..\include\math.h

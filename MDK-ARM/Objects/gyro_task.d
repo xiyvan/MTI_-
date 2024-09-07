@@ -2,7 +2,7 @@
 .\objects\gyro_task.o: ..\APP\GYRO_task.h
 .\objects\gyro_task.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\gyro_task.o: ..\CMSIS\core_cm4.h
-.\objects\gyro_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gyro_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\gyro_task.o: ..\CMSIS\core_cmInstr.h
 .\objects\gyro_task.o: ..\CMSIS\core_cmFunc.h
 .\objects\gyro_task.o: ..\CMSIS\core_cm4_simd.h
@@ -44,7 +44,7 @@
 .\objects\gyro_task.o: ..\Alhorithm\AHRS.h
 .\objects\gyro_task.o: ..\MDK-ARM\typedef_main.h
 .\objects\gyro_task.o: ..\RTOS\include\FreeRTOS.h
-.\objects\gyro_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gyro_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\gyro_task.o: ..\RTOS\include\FreeRTOSConfig.h
 .\objects\gyro_task.o: ..\RTOS\include\projdefs.h
 .\objects\gyro_task.o: ..\RTOS\include\portable.h

@@ -62,7 +62,7 @@ void Chassis_task(void *pvParameters)
         RM_motor_send(CAN1,Main_chassis.chassis_set_msg.current_set[4],Main_chassis.chassis_set_msg.current_set[5],
                                 Main_chassis.chassis_set_msg.current_set[6],Main_chassis.chassis_set_msg.current_set[7],CAN_6010_ID14);
     #endif
-        vTaskDelay(5);
+        vTaskDelay(1);
     }
 }
 
@@ -170,8 +170,8 @@ static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
 
     // wz 速度设置
     chassis->chassis_set_msg.wz_set = wz_set;
-		chassis->chassis_set_msg.vx_set = vx_set;
-		chassis->chassis_set_msg.vy_set = vy_set;
+    chassis->chassis_set_msg.vx_set = vx_set;
+    chassis->chassis_set_msg.vy_set = vy_set;
     // vx 速度设置
 //    if(vx_set != 0)
 //    {
@@ -292,13 +292,12 @@ static void chassis_cale(CHASSIS_struct_t* chassis)
         }break;
     #else
         {
-            // 当每个轮子的角度达到设定值，才开始给轮子添加速度
-						chassis_speed_limt(chassis->duo_solve_date.speed);      // 速度限幅
-                // 轮子速度计算
-						chassis->chassis_set_msg.current_set[0] = PID_cale(&chassis->wheel_speed_pid[0],chassis->duo_solve_date.speed[0],chassis->wheel_speed_msg[0]);
-						chassis->chassis_set_msg.current_set[1] = PID_cale(&chassis->wheel_speed_pid[1],-chassis->duo_solve_date.speed[1],chassis->wheel_speed_msg[1]);
-						chassis->chassis_set_msg.current_set[2] = PID_cale(&chassis->wheel_speed_pid[2],-chassis->duo_solve_date.speed[2],chassis->wheel_speed_msg[2]);
-						chassis->chassis_set_msg.current_set[3] = PID_cale(&chassis->wheel_speed_pid[3],chassis->duo_solve_date.speed[3],chassis->wheel_speed_msg[3]);
+            chassis_speed_limt(chassis->duo_solve_date.speed);      // 速度限幅
+            // 轮子速度计算
+            chassis->chassis_set_msg.current_set[0] = PID_cale(&chassis->wheel_speed_pid[0],chassis->duo_solve_date.speed[0],chassis->wheel_speed_msg[0]);
+            chassis->chassis_set_msg.current_set[1] = PID_cale(&chassis->wheel_speed_pid[1],-chassis->duo_solve_date.speed[1],chassis->wheel_speed_msg[1]);
+            chassis->chassis_set_msg.current_set[2] = PID_cale(&chassis->wheel_speed_pid[2],-chassis->duo_solve_date.speed[2],chassis->wheel_speed_msg[2]);
+            chassis->chassis_set_msg.current_set[3] = PID_cale(&chassis->wheel_speed_pid[3],chassis->duo_solve_date.speed[3],chassis->wheel_speed_msg[3]);
             // 舵轮的角度环PID计算
             PID_cale(&chassis->wheel_angle_angle_pid[0],chassis->duo_solve_date.angle[0],chassis->angle_motor_msg[0].all_angle);
             PID_cale(&chassis->wheel_angle_angle_pid[1],chassis->duo_solve_date.angle[1],chassis->angle_motor_msg[1].all_angle);

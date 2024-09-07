@@ -1,7 +1,7 @@
 .\objects\main.o: main.c
 .\objects\main.o: stm32f4xx.h
 .\objects\main.o: ..\CMSIS\core_cm4.h
-.\objects\main.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\main.o: ..\CMSIS\core_cmInstr.h
 .\objects\main.o: ..\CMSIS\core_cmFunc.h
 .\objects\main.o: ..\CMSIS\core_cm4_simd.h
@@ -43,7 +43,7 @@
 .\objects\main.o: ..\BSP\BSP_spi.h
 .\objects\main.o: ..\RTOS\mk_task.h
 .\objects\main.o: ..\RTOS\include\FreeRTOS.h
-.\objects\main.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\main.o: C:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\main.o: ..\RTOS\include\FreeRTOSConfig.h
 .\objects\main.o: ..\RTOS\include\projdefs.h
 .\objects\main.o: ..\RTOS\include\portable.h

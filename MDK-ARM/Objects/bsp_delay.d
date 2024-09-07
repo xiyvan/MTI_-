@@ -2,7 +2,7 @@
 .\objects\bsp_delay.o: ..\BSP\BSP_Delay.h
 .\objects\bsp_delay.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\bsp_delay.o: ..\CMSIS\core_cm4.h
-.\objects\bsp_delay.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_delay.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_delay.o: ..\CMSIS\core_cmInstr.h
 .\objects\bsp_delay.o: ..\CMSIS\core_cmFunc.h
 .\objects\bsp_delay.o: ..\CMSIS\core_cm4_simd.h

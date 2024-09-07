@@ -2,7 +2,7 @@
 .\objects\chassis_power.o: ..\APP\CHASSIS_POWER.h
 .\objects\chassis_power.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\chassis_power.o: ..\CMSIS\core_cm4.h
-.\objects\chassis_power.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\chassis_power.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\chassis_power.o: ..\CMSIS\core_cmInstr.h
 .\objects\chassis_power.o: ..\CMSIS\core_cmFunc.h
 .\objects\chassis_power.o: ..\CMSIS\core_cm4_simd.h

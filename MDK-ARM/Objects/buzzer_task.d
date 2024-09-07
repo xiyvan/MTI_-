@@ -3,7 +3,7 @@
 .\objects\buzzer_task.o: ..\BSP\BSP_pwm.h
 .\objects\buzzer_task.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\buzzer_task.o: ..\CMSIS\core_cm4.h
-.\objects\buzzer_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\buzzer_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\buzzer_task.o: ..\CMSIS\core_cmInstr.h
 .\objects\buzzer_task.o: ..\CMSIS\core_cmFunc.h
 .\objects\buzzer_task.o: ..\CMSIS\core_cm4_simd.h

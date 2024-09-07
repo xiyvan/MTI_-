@@ -2,7 +2,7 @@
 .\objects\stm32f4xx_dma.o: ..\Drivers\inc\stm32f4xx_dma.h
 .\objects\stm32f4xx_dma.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\stm32f4xx_dma.o: ..\CMSIS\core_cm4.h
-.\objects\stm32f4xx_dma.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f4xx_dma.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\stm32f4xx_dma.o: ..\CMSIS\core_cmInstr.h
 .\objects\stm32f4xx_dma.o: ..\CMSIS\core_cmFunc.h
 .\objects\stm32f4xx_dma.o: ..\CMSIS\core_cm4_simd.h

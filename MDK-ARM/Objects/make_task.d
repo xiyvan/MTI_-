@@ -1,8 +1,8 @@
 .\objects\make_task.o: ..\RTOS\make_task.c
 .\objects\make_task.o: ..\RTOS\mk_task.h
 .\objects\make_task.o: ..\RTOS\include\FreeRTOS.h
-.\objects\make_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\make_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\make_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\make_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\make_task.o: ..\RTOS\include\FreeRTOSConfig.h
 .\objects\make_task.o: ..\RTOS\include\projdefs.h
 .\objects\make_task.o: ..\RTOS\include\portable.h

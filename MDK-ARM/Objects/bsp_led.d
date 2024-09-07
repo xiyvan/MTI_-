@@ -2,7 +2,7 @@
 .\objects\bsp_led.o: ..\BSP\BSP_LED.h
 .\objects\bsp_led.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\bsp_led.o: ..\CMSIS\core_cm4.h
-.\objects\bsp_led.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_led.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_led.o: ..\CMSIS\core_cmInstr.h
 .\objects\bsp_led.o: ..\CMSIS\core_cmFunc.h
 .\objects\bsp_led.o: ..\CMSIS\core_cm4_simd.h

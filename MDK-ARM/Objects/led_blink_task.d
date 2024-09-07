@@ -2,7 +2,7 @@
 .\objects\led_blink_task.o: ..\APP\LED_Blink_task.h
 .\objects\led_blink_task.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\led_blink_task.o: ..\CMSIS\core_cm4.h
-.\objects\led_blink_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\led_blink_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\led_blink_task.o: ..\CMSIS\core_cmInstr.h
 .\objects\led_blink_task.o: ..\CMSIS\core_cmFunc.h
 .\objects\led_blink_task.o: ..\CMSIS\core_cm4_simd.h
@@ -36,7 +36,7 @@
 .\objects\led_blink_task.o: ..\Drivers\inc\stm32f4xx_dcmi.h
 .\objects\led_blink_task.o: ..\Drivers\inc\stm32f4xx_fsmc.h
 .\objects\led_blink_task.o: ..\RTOS\include\FreeRTOS.h
-.\objects\led_blink_task.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\led_blink_task.o: C:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\led_blink_task.o: ..\RTOS\include\FreeRTOSConfig.h
 .\objects\led_blink_task.o: ..\RTOS\include\projdefs.h
 .\objects\led_blink_task.o: ..\RTOS\include\portable.h

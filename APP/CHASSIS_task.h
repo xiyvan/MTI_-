@@ -14,10 +14,10 @@
 
 
 // 舵轮转向电机零点修正
-#define chassis_duo_motor_cali1 3.75134993f
-#define chassis_duo_motor_cali2 3.01734018f
-#define chassis_duo_motor_cali3 5.87974834f
-#define chassis_duo_motor_cali4 4.07655382f
+#define chassis_duo_motor_cali1 3.75671887f
+#define chassis_duo_motor_cali2 3.00890326f
+#define chassis_duo_motor_cali3 5.89048624f
+#define chassis_duo_motor_cali4 5.16568041f
 
 // 底盘轮子速度PID
 #define chassis_whell_speed_pid_kp 9000.0f
@@ -82,7 +82,6 @@ typedef struct
     float angle[4];     // 最终解算出来的轮子角度
     float speed[4];     // 最终解算出来的轮子的速度
 
-    u8 state;   // 用来标志轮子是不是全部到位
 }chassis_solve_duo_t;
 
 

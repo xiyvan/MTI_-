@@ -2,7 +2,7 @@
 .\objects\bsp_pwm.o: ..\BSP\BSP_pwm.h
 .\objects\bsp_pwm.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\bsp_pwm.o: ..\CMSIS\core_cm4.h
-.\objects\bsp_pwm.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_pwm.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_pwm.o: ..\CMSIS\core_cmInstr.h
 .\objects\bsp_pwm.o: ..\CMSIS\core_cmFunc.h
 .\objects\bsp_pwm.o: ..\CMSIS\core_cm4_simd.h

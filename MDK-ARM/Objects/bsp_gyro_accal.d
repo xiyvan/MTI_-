@@ -2,7 +2,7 @@
 .\objects\bsp_gyro_accal.o: ..\BSP\BSP_gyro_accal.h
 .\objects\bsp_gyro_accal.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\bsp_gyro_accal.o: ..\CMSIS\core_cm4.h
-.\objects\bsp_gyro_accal.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_gyro_accal.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_gyro_accal.o: ..\CMSIS\core_cmInstr.h
 .\objects\bsp_gyro_accal.o: ..\CMSIS\core_cmFunc.h
 .\objects\bsp_gyro_accal.o: ..\CMSIS\core_cm4_simd.h

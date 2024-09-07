@@ -2,7 +2,7 @@
 .\objects\bsp_usart.o: ..\BSP\BSP_Usart.h
 .\objects\bsp_usart.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\bsp_usart.o: ..\CMSIS\core_cm4.h
-.\objects\bsp_usart.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp_usart.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\bsp_usart.o: ..\CMSIS\core_cmInstr.h
 .\objects\bsp_usart.o: ..\CMSIS\core_cmFunc.h
 .\objects\bsp_usart.o: ..\CMSIS\core_cm4_simd.h

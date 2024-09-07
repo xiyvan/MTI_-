@@ -2,7 +2,7 @@
 .\objects\pid.o: ..\Alhorithm\PID.h
 .\objects\pid.o: ..\MDK-ARM\stm32f4xx.h
 .\objects\pid.o: ..\CMSIS\core_cm4.h
-.\objects\pid.o: D:\keil 5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\pid.o: C:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\pid.o: ..\CMSIS\core_cmInstr.h
 .\objects\pid.o: ..\CMSIS\core_cmFunc.h
 .\objects\pid.o: ..\CMSIS\core_cm4_simd.h
