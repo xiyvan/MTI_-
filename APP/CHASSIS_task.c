@@ -170,39 +170,38 @@ static void chassis_ctrl_set(CHASSIS_struct_t* chassis)
 
     // wz 速度设置
     chassis->chassis_set_msg.wz_set = wz_set;
-    chassis->chassis_set_msg.vx_set = vx_set;
-    chassis->chassis_set_msg.vy_set = vy_set;
+    //chassis->chassis_set_msg.vx_set = vx_set;
+    //chassis->chassis_set_msg.vy_set = vy_set;
     // vx 速度设置
-//    if(vx_set != 0)
-//    {
-//        chassis->chassis_set_msg.vx_set =  FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vx_speed,
-//                                                                    vx_set,
-//                                                                    0.015); 
-//    }
-//    else
-//    {
-//        chassis->chassis_set_msg.vx_set = 0;
-//        chassis->chassis_set_msg.vx_speed.out = 0;
-//    }
+    if(vx_set != 0)
+    {
+        chassis->chassis_set_msg.vx_set =  FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vx_speed,
+                                                                    vx_set,
+                                                                    0.015);
+    }
+    else
+    {
+        chassis->chassis_set_msg.vx_set = 0;
+        chassis->chassis_set_msg.vx_speed.out = 0;
+    }
 
-//    // vy 速度设置
-//    if(vy_set != 0)
-//    {
-//        chassis->chassis_set_msg.vy_set = FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vy_speed,
-//                                                                    vy_set,
-//                                                                    0.015);
-//    }
-//    else
-//    {
-//        chassis->chassis_set_msg.vy_set = 0;
-//        chassis->chassis_set_msg.vy_speed.out = 0;
-//    }
+    // vy 速度设置
+    if(vy_set != 0)
+    {
+        chassis->chassis_set_msg.vy_set = FZ_math_StepToSlope_cale(&chassis->chassis_set_msg.vy_speed,
+                                                                    vy_set,
+                                                                    0.015);
+    }
+    else
+    {
+        chassis->chassis_set_msg.vy_set = 0;
+        chassis->chassis_set_msg.vy_speed.out = 0;
+    }
 ///*********************************************  底盘跟随底盘情况下的角度设定  *********************************************///
     if(chassis->chassis_set_msg.mode_set == CHASSIS_NO_FLOW_CHASSIS)
     {
-        chassis->chassis_set_msg.wz_SetAngle -= chassis->chassis_set_msg.wz_set * 0.01f;		// 测得是反的所以这里加负号（根据实际情况来）
+        chassis->chassis_set_msg.wz_SetAngle -= chassis->chassis_set_msg.wz_set * 0.003f;		// 测得是反的所以这里加负号（根据实际情况来）
     }
-
 }
 
 

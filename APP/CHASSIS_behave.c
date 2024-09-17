@@ -105,8 +105,18 @@ void chassis_follow_chassis_solve(CHASSIS_struct_t* chassis)
 void chassis_follow_chassis_solve_D(CHASSIS_struct_t* chassis,chassis_solve_duo_t* date)
 {
     float wzv_set = 0.0f;
-    wzv_set = -PID_cale(&chassis->angle_pid,chassis->chassis_set_msg.wz_SetAngle,chassis->Ins_msg.yaw_all_angle);
+    float wheel_angle_cale[4] = {0};    // 用来保存矫正过后的轮子角度
+    int16_t state = 0;
 
+    // 计算校正后的反馈值
+    wheel_angle_cale[0] = chassis->angle_motor_msg[0].all_angle - date->angle_cali[0];
+    wheel_angle_cale[1] = chassis->angle_motor_msg[1].all_angle - date->angle_cali[1];
+    wheel_angle_cale[2] = chassis->angle_motor_msg[2].all_angle - date->angle_cali[2];
+    wheel_angle_cale[3] = chassis->angle_motor_msg[3].all_angle - date->angle_cali[3];
+
+    wzv_set = -PID_cale(&chassis->angle_pid,chassis->chassis_set_msg.wz_SetAngle,chassis->Ins_msg.yaw_all_angle);
+	wzv_set = FZ_math_deadzone_limt(0.05f,wzv_set,0);
+    //wzv_set = chassis->chassis_set_msg.wz_set;
     ///*****************************  把旋转速度分解到vx与vy上面  *********************************************///
 
     date->vxm[0] = chassis->chassis_set_msg.vx_set + wzv_set / CHASSIS_BEHAVE_SQRT_2;
@@ -121,19 +131,71 @@ void chassis_follow_chassis_solve_D(CHASSIS_struct_t* chassis,chassis_solve_duo_
     date->vxm[3] = chassis->chassis_set_msg.vx_set + wzv_set / CHASSIS_BEHAVE_SQRT_2;
     date->vym[3] = chassis->chassis_set_msg.vy_set - wzv_set / CHASSIS_BEHAVE_SQRT_2;
 
-
     ///****************************  解算各个轮子的角度与速度  ***********************************************///
+
+    if(!(chassis->chassis_set_msg.vy_set == 0 && chassis->chassis_set_msg.vx_set == 0 && wzv_set == 0))
+    {
+        date->angle[0] = atan2f(chassis->chassis_set_msg.vy_set + wzv_set / CHASSIS_BEHAVE_SQRT_2,
+                        chassis->chassis_set_msg.vx_set + wzv_set / CHASSIS_BEHAVE_SQRT_2);
+        date->angle[1] = atan2f(chassis->chassis_set_msg.vy_set + wzv_set / CHASSIS_BEHAVE_SQRT_2,
+                                chassis->chassis_set_msg.vx_set - wzv_set / CHASSIS_BEHAVE_SQRT_2);
+        date->angle[2] = atan2f(chassis->chassis_set_msg.vy_set - wzv_set / CHASSIS_BEHAVE_SQRT_2,
+                                chassis->chassis_set_msg.vx_set - wzv_set / CHASSIS_BEHAVE_SQRT_2);
+        date->angle[3] = atan2f(chassis->chassis_set_msg.vy_set - wzv_set / CHASSIS_BEHAVE_SQRT_2,
+                                chassis->chassis_set_msg.vx_set + wzv_set / CHASSIS_BEHAVE_SQRT_2);
+    }
+
+    // 如果vxm与vym都是0的话
+    if(chassis->chassis_set_msg.vy_set == 0 && chassis->chassis_set_msg.vx_set == 0 && wzv_set == 0)
+    {
+        date->angle[0] = 0.78539816339f;
+        date->angle[1] = 0.78539816339f + 1.570796326794f;
+        date->angle[2] = 0.78539816339f;
+        date->angle[3] = 0.78539816339f + 1.570796326794f;
+    }
+
     for(u8 i = 0;i < 4;i++)
     {
-        if((date->vxm[i] != 0) && (date->vym[i] != 0))
+        // 利用勾股定理求解速度大小
+        arm_sqrt_f32((date->vym[i] * date->vym[i] + date->vxm[i] * date->vxm[i]),&date->speed[i]);
+
+        // 判断是不是大于180°，若大于下面对应的算法就应该是 -180 否则 +180
+        if(FZ_math_absolute(date->angle[i]) < 0)
         {
-            // 如果vxm与vym都不为0的话
-            
+            state = 1;
+        }
+        else if(FZ_math_absolute(date->angle[i]) > 0)
+        {
+            state = -1;
+        }
+
+        // 如果 |设定值减去当前值| 小于90°
+        if(FZ_math_absolute(date->angle[i] - wheel_angle_cale[i]) < 1.570796326794f)
+        {
+            // 就按照这个角度进行角度设置
+            date->angle[i] = date->angle[i];
+        }
+        else if(FZ_math_absolute(2*PI - (date->angle[i] - wheel_angle_cale[i])) < 1.570796326794f)
+        {
+            // 如果让 |2PI - （设定值 - 当前值）| < 90°的话同理
+            date->angle[i] = date->angle[i];
+        }
+        else if(FZ_math_absolute((date->angle[i] + state*PI) - wheel_angle_cale[i]) < 1.570796326794f)
+        {
+            // 如果 |设定值+180° - 当前值| < 90°的话
+            // 就上设定值改为 +180 并且让速度反向
+            date->angle[i] += state*PI;
+            date->speed[i] = - date->speed[i];
+        }
+        else if(FZ_math_absolute(2*PI-((date->angle[i] + state*PI) - wheel_angle_cale[i])) < 1.570796326794f)
+        {
+            date->angle[i] += state*PI;
+            date->speed[i] = -date->speed[i];
         }
     }
 
 //******************************* 角度设定值校正 ******************************************///
-    date->state = 0;
+
     for(u8 i = 0;i < 4;i++)
     {
         // 角度修正 把角度转换到 0 的位置
